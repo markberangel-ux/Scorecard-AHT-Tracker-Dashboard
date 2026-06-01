@@ -4,8 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>QA Scorecard + AHT Dashboard | Enterprise Analytics</title>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js">
-    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700&display=swap');
 
@@ -159,16 +158,8 @@
             -webkit-backdrop-filter: blur(30px) saturate(200%);
         }
 
-        *,
-        *::before,
-        *::after {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
-        html {
-            scroll-behavior: smooth;
-        }
+        *,*::before,*::after { box-sizing: border-box; margin: 0; padding: 0; }
+        html { scroll-behavior: smooth; }
         body {
             font-family: var(--font-sans);
             background: var(--bg-deep);
@@ -180,11 +171,7 @@
             -webkit-font-smoothing: antialiased;
         }
 
-        .app-shell {
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-        }
+        .app-shell { min-height: 100vh; display: flex; flex-direction: column; }
 
         .navbar {
             background: var(--bg-glass);
@@ -216,10 +203,7 @@
             background-clip: text;
             white-space: nowrap;
         }
-        .navbar-brand .brand-icon {
-            font-size: 22px;
-            -webkit-text-fill-color: initial;
-        }
+        .navbar-brand .brand-icon { font-size: 22px; -webkit-text-fill-color: initial; }
         .navbar-tabs {
             display: flex;
             gap: 2px;
@@ -227,6 +211,7 @@
             border-radius: 30px;
             padding: 3px;
             border: 1px solid var(--border-subtle);
+            flex-wrap: wrap;
         }
         .nav-tab {
             font-family: var(--font-sans);
@@ -241,23 +226,10 @@
             color: var(--text-secondary);
             transition: all var(--transition-smooth);
             white-space: nowrap;
-            position: relative;
         }
-        .nav-tab.active {
-            background: var(--gradient-1);
-            color: #fff;
-            box-shadow: var(--shadow-glow-blue);
-        }
-        .nav-tab:hover:not(.active) {
-            color: var(--text-primary);
-            background: rgba(255, 255, 255, 0.04);
-        }
-        .navbar-actions {
-            display: flex;
-            gap: 6px;
-            flex-wrap: wrap;
-            align-items: center;
-        }
+        .nav-tab.active { background: var(--gradient-1); color: #fff; box-shadow: var(--shadow-glow-blue); }
+        .nav-tab:hover:not(.active) { color: var(--text-primary); background: rgba(255,255,255,0.04); }
+        .navbar-actions { display: flex; gap: 6px; flex-wrap: wrap; align-items: center; }
         .btn {
             font-family: var(--font-sans);
             font-size: 11px;
@@ -275,60 +247,18 @@
             align-items: center;
             gap: 5px;
         }
-        .btn:hover {
-            border-color: var(--border-active);
-            color: var(--text-primary);
-            transform: translateY(-1px);
-            box-shadow: var(--shadow-md);
-        }
-        .btn:active {
-            transform: scale(0.97);
-        }
-        .btn-accent {
-            background: var(--gradient-1);
-            color: #fff;
-            border: none;
-            font-weight: 700;
-        }
-        .btn-accent:hover {
-            box-shadow: var(--shadow-glow-blue);
-            color: #fff;
-        }
-        .btn-outline-gold {
-            border-color: rgba(240, 180, 41, 0.4);
-            color: var(--accent-gold);
-        }
-        .btn-outline-red {
-            border-color: rgba(239, 68, 68, 0.4);
-            color: var(--accent-red);
-        }
-        .btn-icon {
-            width: 34px;
-            height: 34px;
-            padding: 0;
-            border-radius: 50%;
-            justify-content: center;
-            font-size: 15px;
-        }
+        .btn:hover { border-color: var(--border-active); color: var(--text-primary); transform: translateY(-1px); box-shadow: var(--shadow-md); }
+        .btn:active { transform: scale(0.97); }
+        .btn-accent { background: var(--gradient-1); color: #fff; border: none; font-weight: 700; }
+        .btn-accent:hover { box-shadow: var(--shadow-glow-blue); color: #fff; }
+        .btn-outline-gold { border-color: rgba(240, 180, 41, 0.4); color: var(--accent-gold); }
+        .btn-outline-red { border-color: rgba(239, 68, 68, 0.4); color: var(--accent-red); }
+        .btn-icon { width: 34px; height: 34px; padding: 0; border-radius: 50%; justify-content: center; font-size: 15px; }
 
-        .main-content {
-            flex: 1;
-            padding: 16px 20px;
-            max-width: 1500px;
-            margin: 0 auto;
-            width: 100%;
-        }
-        .tab-page {
-            display: none;
-            animation: fadeSlideIn 0.4s ease;
-        }
-        .tab-page.active {
-            display: block;
-        }
-        @keyframes fadeSlideIn {
-            from { opacity: 0; transform: translateY(12px); }
-            to   { opacity: 1; transform: none; }
-        }
+        .main-content { flex: 1; padding: 16px 20px; max-width: 1500px; margin: 0 auto; width: 100%; }
+        .tab-page { display: none; animation: fadeSlideIn 0.4s ease; }
+        .tab-page.active { display: block; }
+        @keyframes fadeSlideIn { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: none; } }
 
         .glass-card {
             background: var(--bg-glass);
@@ -340,10 +270,7 @@
             transition: all var(--transition-smooth);
             overflow: hidden;
         }
-        .glass-card:hover {
-            box-shadow: var(--shadow-md);
-            border-color: var(--border-active);
-        }
+        .glass-card:hover { box-shadow: var(--shadow-md); border-color: var(--border-active); }
         .glass-card-header {
             padding: 12px 18px;
             border-bottom: 1px solid var(--border-subtle);
@@ -353,28 +280,11 @@
             gap: 10px;
             flex-wrap: wrap;
         }
-        .glass-card-title {
-            font-size: 13px;
-            font-weight: 700;
-            letter-spacing: 0.02em;
-            color: var(--text-primary);
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-        .glass-card-body {
-            padding: 14px 18px;
-        }
-        .glass-card-body.no-padding {
-            padding: 0;
-        }
+        .glass-card-title { font-size: 13px; font-weight: 700; letter-spacing: 0.02em; color: var(--text-primary); display: flex; align-items: center; gap: 8px; }
+        .glass-card-body { padding: 14px 18px; }
+        .glass-card-body.no-padding { padding: 0; }
 
-        .stat-cards-row {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-            gap: 14px;
-            margin-bottom: 18px;
-        }
+        .stat-cards-row { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 14px; margin-bottom: 18px; }
         .stat-card {
             background: var(--bg-glass);
             backdrop-filter: blur(14px);
@@ -390,1219 +300,1565 @@
         .stat-card::before {
             content: '';
             position: absolute;
-            top: -30px;
-            right: -30px;
-            width: 80px;
-            height: 80px;
+            top: -30px; right: -30px;
+            width: 80px; height: 80px;
             border-radius: 50%;
             opacity: 0.15;
             transition: all var(--transition-smooth);
         }
-        .stat-card:hover {
-            transform: translateY(-4px);
-            box-shadow: var(--shadow-lg);
-            border-color: var(--border-active);
-        }
-        .stat-card:hover::before {
-            transform: scale(1.3);
-            opacity: 0.25;
-        }
+        .stat-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); border-color: var(--border-active); }
+        .stat-card:hover::before { transform: scale(1.3); opacity: 0.25; }
         .stat-card.accent-blue::before    { background: var(--accent-blue); }
         .stat-card.accent-purple::before  { background: var(--accent-purple); }
         .stat-card.accent-cyan::before    { background: var(--accent-cyan); }
         .stat-card.accent-gold::before    { background: var(--accent-gold); }
         .stat-card.accent-green::before   { background: var(--accent-green); }
         .stat-card.accent-red::before     { background: var(--accent-red); }
-        .stat-card-icon {
-            font-size: 22px;
-            margin-bottom: 6px;
+        .stat-card-icon { font-size: 22px; margin-bottom: 6px; }
+        .stat-card-label { font-size: 10px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; color: var(--text-muted); margin-bottom: 4px; }
+        .stat-card-value { font-family: var(--font-mono); font-size: 24px; font-weight: 800; color: var(--text-primary); line-height: 1; letter-spacing: -0.02em; }
+        .stat-card-sub { font-size: 10px; color: var(--text-muted); margin-top: 4px; }
+        .stat-card-trend { display: inline-flex; align-items: center; gap: 3px; font-size: 10px; font-weight: 700; padding: 2px 8px; border-radius: 10px; margin-top: 6px; }
+        .trend-up    { color: #22c55e; background: rgba(34,197,94,0.12); }
+        .trend-down  { color: #ef4444; background: rgba(239,68,68,0.12); }
+        .trend-neutral { color: #f0b429; background: rgba(240,180,41,0.12); }
+
+        .progress-wrapper { margin: 6px 0; }
+        .progress-label-row { display: flex; justify-content: space-between; font-size: 10px; font-weight: 600; letter-spacing: 0.04em; margin-bottom: 3px; color: var(--text-secondary); }
+        .progress-bar-outer { height: 8px; background: rgba(255,255,255,0.06); border-radius: 10px; overflow: hidden; }
+        .progress-bar-inner { height: 100%; border-radius: 10px; transition: width 0.6s cubic-bezier(0.4,0,0.2,1); background: var(--gradient-1); }
+        .progress-bar-inner.gold   { background: var(--gradient-3); }
+        .progress-bar-inner.green  { background: var(--gradient-4); }
+        .progress-bar-inner.red    { background: linear-gradient(135deg,#ef4444,#f97316); }
+        .progress-bar-inner.purple { background: var(--gradient-5); }
+
+        .grid-2col { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+        .grid-3col { display: grid; grid-template-columns: repeat(3,1fr); gap: 16px; }
+        .grid-main-sidebar { display: grid; grid-template-columns: 1fr 340px; gap: 16px; align-items: start; }
+        @media (max-width: 1100px) { .grid-main-sidebar,.grid-2col,.grid-3col { grid-template-columns: 1fr; } .stat-cards-row { grid-template-columns: repeat(2,1fr); } }
+        @media (max-width: 600px)  { .stat-cards-row { grid-template-columns: 1fr; } .navbar { padding: 8px 10px; } }
+
+        .table-wrap { overflow-x: auto; border-radius: var(--radius-sm); }
+        table.data-table { width: 100%; border-collapse: collapse; font-family: var(--font-mono); font-size: 11.5px; }
+        table.data-table th { background: var(--bg-card-alt); color: var(--text-muted); padding: 8px 10px; text-align: center; font-size: 10px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; border: 1px solid var(--border-subtle); white-space: nowrap; }
+        table.data-table td { border: 1px solid var(--border-subtle); padding: 5px 8px; text-align: center; background: var(--bg-card); color: var(--text-primary); transition: background var(--transition-fast); }
+        table.data-table tr:hover td { background: var(--bg-card-alt); }
+        table.data-table input[type="date"],
+        table.data-table input[type="number"],
+        table.data-table input[type="text"] { background: var(--bg-input); border: 1px solid var(--border-subtle); color: var(--text-primary); font-family: var(--font-mono); font-size: 11px; padding: 5px 7px; width: 100%; border-radius: 6px; outline: none; transition: all var(--transition-fast); text-align: center; }
+        table.data-table input:focus { border-color: var(--accent-blue); box-shadow: 0 0 0 3px rgba(79,143,255,0.12); background: #1e2845; }
+        .row-highlight td { background: rgba(79,143,255,0.06) !important; font-weight: 700; }
+        .row-gold td     { background: rgba(240,180,41,0.08) !important; color: var(--accent-gold); font-weight: 700; }
+        .row-summary td  { background: var(--bg-card-alt) !important; font-weight: 700; color: var(--accent-cyan); }
+        .badge { display: inline-block; padding: 3px 10px; border-radius: 12px; font-size: 10px; font-weight: 700; letter-spacing: 0.04em; }
+        .badge-green  { background: rgba(34,197,94,0.15); color: #22c55e; }
+        .badge-yellow { background: rgba(240,180,41,0.15); color: #f0b429; }
+        .badge-red    { background: rgba(239,68,68,0.15); color: #ef4444; }
+        .badge-blue   { background: rgba(79,143,255,0.15); color: #4f8fff; }
+
+        .week-block { background: var(--bg-glass); backdrop-filter: blur(10px); border: 1px solid var(--border-card); border-radius: var(--radius-md); overflow: hidden; margin-bottom: 10px; transition: all var(--transition-smooth); }
+        .week-block:hover { box-shadow: var(--shadow-md); }
+        .week-header-bar { background: var(--bg-card-alt); padding: 8px 14px; display: flex; align-items: center; justify-content: space-between; cursor: pointer; user-select: none; border-bottom: 1px solid var(--border-subtle); transition: background var(--transition-fast); }
+        .week-header-bar:hover { background: rgba(255,255,255,0.03); }
+        .week-header-title { font-family: var(--font-mono); font-size: 12px; font-weight: 700; letter-spacing: 0.06em; color: var(--text-primary); }
+        .week-header-badge { font-size: 10px; font-weight: 600; color: var(--accent-blue); background: rgba(79,143,255,0.1); padding: 3px 10px; border-radius: 10px; }
+        .week-collapse-icon { font-size: 16px; color: var(--text-muted); transition: transform var(--transition-smooth); }
+        .week-content { overflow: hidden; transition: max-height 0.5s cubic-bezier(0.4,0,0.2,1); max-height: 4000px; }
+        .week-content.collapsed { max-height: 0; }
+        .add-row-btn { background: transparent; border: 1px dashed var(--border-card); color: var(--text-muted); font-family: var(--font-mono); font-size: 10px; font-weight: 600; padding: 6px 14px; cursor: pointer; width: 100%; text-align: left; transition: all var(--transition-fast); letter-spacing: 0.04em; }
+        .add-row-btn:hover { border-color: var(--accent-blue); color: var(--accent-blue); background: rgba(79,143,255,0.04); }
+        .row-del-btn { background: transparent; border: 1px solid transparent; color: #555; cursor: pointer; font-size: 14px; padding: 3px 7px; border-radius: 4px; transition: all var(--transition-fast); }
+        .row-del-btn:hover { background: rgba(239,68,68,0.2); border-color: var(--accent-red); color: var(--accent-red); }
+
+        .aht-time-input { background: var(--bg-input); border: 1px solid var(--border-subtle); color: var(--text-primary); font-family: var(--font-mono); font-size: 13px; font-weight: 600; padding: 5px 10px; width: 130px; border-radius: 6px; outline: none; text-align: center; transition: all var(--transition-fast); letter-spacing: 0.04em; }
+        .aht-time-input:focus { border-color: var(--accent-blue); box-shadow: 0 0 0 3px rgba(79,143,255,0.15); }
+        .aht-time-input.invalid { border-color: var(--accent-red); }
+        .aht-result-display { font-family: var(--font-mono); font-size: 42px; font-weight: 900; letter-spacing: -0.03em; text-align: center; line-height: 1; transition: color 0.4s; }
+        .aht-perf-tag { display: inline-block; padding: 5px 18px; border-radius: 20px; font-size: 11px; font-weight: 700; letter-spacing: 0.06em; transition: all 0.3s; }
+        .aht-perf-good { background: rgba(34,197,94,0.15); color: #22c55e; border: 1px solid rgba(34,197,94,0.3); }
+        .aht-perf-avg  { background: rgba(240,180,41,0.15); color: #f0b429; border: 1px solid rgba(240,180,41,0.3); }
+        .aht-perf-high { background: rgba(239,68,68,0.15); color: #ef4444; border: 1px solid rgba(239,68,68,0.3); }
+
+        .toast-container { position: fixed; top: 70px; right: 20px; z-index: 9999; display: flex; flex-direction: column; gap: 8px; pointer-events: none; }
+        .toast { pointer-events: auto; font-family: var(--font-sans); font-size: 12px; font-weight: 600; padding: 10px 18px; border-radius: 10px; color: #fff; letter-spacing: 0.02em; box-shadow: var(--shadow-lg); animation: toastIn 0.35s ease, toastOut 0.4s ease 3s forwards; max-width: 440px; backdrop-filter: blur(12px); }
+        .toast-success { background: rgba(34,197,94,0.85); }
+        .toast-error   { background: rgba(239,68,68,0.85); }
+        .toast-info    { background: rgba(79,143,255,0.85); }
+        @keyframes toastIn  { from { opacity:0; transform: translateX(40px); } to { opacity:1; transform: translateX(0); } }
+        @keyframes toastOut { from { opacity:1; transform: translateX(0); } to { opacity:0; transform: translateX(40px); } }
+
+        .monthly-hero { background: var(--gradient-dark); border-radius: var(--radius-xl); padding: 20px 24px; border: 1px solid var(--border-card); position: relative; overflow: hidden; margin-bottom: 18px; }
+        .monthly-hero::after { content:''; position:absolute; top:-60px; right:-40px; width:200px; height:200px; border-radius:50%; background:var(--accent-blue); opacity:0.06; pointer-events:none; }
+        .monthly-hero-title { font-size: 20px; font-weight: 900; letter-spacing: -0.03em; color: var(--text-primary); position: relative; z-index: 1; }
+        .monthly-hero-sub { font-size: 11px; color: var(--text-muted); letter-spacing: 0.06em; text-transform: uppercase; margin-top: 2px; position: relative; z-index: 1; }
+
+        @media print { .navbar,.btn,.toast-container,.add-row-btn,.row-del-btn { display:none !important; } body { background:#fff; color:#000; } .glass-card { border:1px solid #ccc; box-shadow:none; } }
+
+        .animate-pop { animation: popIn 0.35s cubic-bezier(0.34,1.56,0.64,1); }
+        @keyframes popIn { from { opacity:0; transform:scale(0.9); } to { opacity:1; transform:none; } }
+        .pulse-dot { width:8px; height:8px; border-radius:50%; background:var(--accent-green); display:inline-block; animation:pulse 2s infinite; }
+        @keyframes pulse { 0%,100% { box-shadow:0 0 0 0 rgba(34,197,94,0.5); } 50% { box-shadow:0 0 0 10px rgba(34,197,94,0); } }
+
+        /* ===== KPI BONUS CALCULATOR STYLES ===== */
+        .bonus-hero {
+            background: linear-gradient(135deg, #0a1628 0%, #0d1f3c 50%, #0a1628 100%);
+            border-radius: var(--radius-xl);
+            padding: 24px 28px;
+            border: 1px solid rgba(79,143,255,0.2);
+            position: relative;
+            overflow: hidden;
+            margin-bottom: 20px;
         }
-        .stat-card-label {
+        .bonus-hero::before {
+            content: '';
+            position: absolute;
+            top: -80px; right: -60px;
+            width: 280px; height: 280px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(79,143,255,0.15) 0%, transparent 70%);
+            pointer-events: none;
+        }
+        .bonus-hero::after {
+            content: '';
+            position: absolute;
+            bottom: -50px; left: -40px;
+            width: 200px; height: 200px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(139,92,246,0.12) 0%, transparent 70%);
+            pointer-events: none;
+        }
+        .bonus-hero-title {
+            font-size: 22px;
+            font-weight: 900;
+            letter-spacing: -0.03em;
+            background: linear-gradient(135deg, #4f8fff, #8b5cf6, #06b6d4);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            position: relative;
+            z-index: 1;
+        }
+        .bonus-hero-sub {
+            font-size: 11px;
+            color: #6b7394;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            margin-top: 3px;
+            position: relative;
+            z-index: 1;
+        }
+        .bonus-layout {
+            display: grid;
+            grid-template-columns: 420px 1fr;
+            gap: 18px;
+            align-items: start;
+        }
+        @media (max-width: 1100px) { .bonus-layout { grid-template-columns: 1fr; } }
+
+        /* Input Panel */
+        .kpi-input-panel {
+            background: var(--bg-glass);
+            backdrop-filter: blur(16px);
+            border: 1px solid var(--border-card);
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+        }
+        .kpi-input-header {
+            background: linear-gradient(135deg, rgba(79,143,255,0.08), rgba(139,92,246,0.08));
+            padding: 14px 20px;
+            border-bottom: 1px solid var(--border-subtle);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .kpi-input-header-title { font-size: 13px; font-weight: 700; color: var(--text-primary); }
+        .kpi-input-body { padding: 18px 20px; display: flex; flex-direction: column; gap: 14px; }
+
+        .kpi-field-group { display: flex; flex-direction: column; gap: 5px; }
+        .kpi-field-label {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
             font-size: 10px;
-            font-weight: 600;
+            font-weight: 700;
             text-transform: uppercase;
             letter-spacing: 0.08em;
             color: var(--text-muted);
-            margin-bottom: 4px;
         }
-        .stat-card-value {
-            font-family: var(--font-mono);
-            font-size: 24px;
-            font-weight: 800;
-            color: var(--text-primary);
-            line-height: 1;
-            letter-spacing: -0.02em;
-        }
-        .stat-card-sub {
-            font-size: 10px;
-            color: var(--text-muted);
-            margin-top: 4px;
-        }
-        .stat-card-trend {
-            display: inline-flex;
-            align-items: center;
-            gap: 3px;
-            font-size: 10px;
+        .kpi-field-weight {
+            font-size: 9px;
             font-weight: 700;
             padding: 2px 8px;
-            border-radius: 10px;
-            margin-top: 6px;
-        }
-        .trend-up       { color: #22c55e; background: rgba(34, 197, 94, 0.12); }
-        .trend-down     { color: #ef4444; background: rgba(239, 68, 68, 0.12); }
-        .trend-neutral  { color: #f0b429; background: rgba(240, 180, 41, 0.12); }
-
-        .progress-wrapper {
-            margin: 6px 0;
-        }
-        .progress-label-row {
-            display: flex;
-            justify-content: space-between;
-            font-size: 10px;
-            font-weight: 600;
-            letter-spacing: 0.04em;
-            margin-bottom: 3px;
-            color: var(--text-secondary);
-        }
-        .progress-bar-outer {
-            height: 8px;
-            background: rgba(255, 255, 255, 0.06);
-            border-radius: 10px;
-            overflow: hidden;
-        }
-        .progress-bar-inner {
-            height: 100%;
-            border-radius: 10px;
-            transition: width 0.6s cubic-bezier(0.4, 0, 0.2, 1);
-            background: var(--gradient-1);
-        }
-        .progress-bar-inner.gold    { background: var(--gradient-3); }
-        .progress-bar-inner.green   { background: var(--gradient-4); }
-        .progress-bar-inner.red     { background: linear-gradient(135deg, #ef4444, #f97316); }
-        .progress-bar-inner.purple  { background: var(--gradient-5); }
-
-        .grid-2col {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 16px;
-        }
-        .grid-3col {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 16px;
-        }
-        .grid-main-sidebar {
-            display: grid;
-            grid-template-columns: 1fr 340px;
-            gap: 16px;
-            align-items: start;
-        }
-        @media (max-width: 1100px) {
-            .grid-main-sidebar { grid-template-columns: 1fr; }
-            .grid-2col, .grid-3col { grid-template-columns: 1fr; }
-            .stat-cards-row { grid-template-columns: repeat(2, 1fr); }
-        }
-        @media (max-width: 600px) {
-            .stat-cards-row { grid-template-columns: 1fr; }
-            .navbar { padding: 8px 10px; }
-        }
-
-        .table-wrap {
-            overflow-x: auto;
-            border-radius: var(--radius-sm);
-        }
-        table.data-table {
-            width: 100%;
-            border-collapse: collapse;
-            font-family: var(--font-mono);
-            font-size: 11.5px;
-        }
-        table.data-table th {
-            background: var(--bg-card-alt);
-            color: var(--text-muted);
-            padding: 8px 10px;
-            text-align: center;
-            font-size: 10px;
-            font-weight: 700;
-            letter-spacing: 0.06em;
-            text-transform: uppercase;
-            border: 1px solid var(--border-subtle);
-            white-space: nowrap;
-        }
-        table.data-table td {
-            border: 1px solid var(--border-subtle);
-            padding: 5px 8px;
-            text-align: center;
-            background: var(--bg-card);
-            color: var(--text-primary);
-            transition: background var(--transition-fast);
-        }
-        table.data-table tr:hover td {
-            background: var(--bg-card-alt);
-        }
-        table.data-table input[type="date"],
-        table.data-table input[type="number"],
-        table.data-table input[type="text"] {
-            background: var(--bg-input);
-            border: 1px solid var(--border-subtle);
-            color: var(--text-primary);
-            font-family: var(--font-mono);
-            font-size: 11px;
-            padding: 5px 7px;
-            width: 100%;
-            border-radius: 6px;
-            outline: none;
-            transition: all var(--transition-fast);
-            text-align: center;
-        }
-        table.data-table input:focus {
-            border-color: var(--accent-blue);
-            box-shadow: 0 0 0 3px rgba(79, 143, 255, 0.12);
-            background: #1e2845;
-        }
-        .row-highlight td {
-            background: rgba(79, 143, 255, 0.06) !important;
-            font-weight: 700;
-        }
-        .row-gold td {
-            background: rgba(240, 180, 41, 0.08) !important;
-            color: var(--accent-gold);
-            font-weight: 700;
-        }
-        .row-summary td {
-            background: var(--bg-card-alt) !important;
-            font-weight: 700;
-            color: var(--accent-cyan);
-        }
-        .badge {
-            display: inline-block;
-            padding: 3px 10px;
-            border-radius: 12px;
-            font-size: 10px;
-            font-weight: 700;
-            letter-spacing: 0.04em;
-        }
-        .badge-green  { background: rgba(34, 197, 94, 0.15); color: #22c55e; }
-        .badge-yellow { background: rgba(240, 180, 41, 0.15); color: #f0b429; }
-        .badge-red    { background: rgba(239, 68, 68, 0.15); color: #ef4444; }
-        .badge-blue   { background: rgba(79, 143, 255, 0.15); color: #4f8fff; }
-
-        .week-block {
-            background: var(--bg-glass);
-            backdrop-filter: blur(10px);
-            border: 1px solid var(--border-card);
-            border-radius: var(--radius-md);
-            overflow: hidden;
-            margin-bottom: 10px;
-            transition: all var(--transition-smooth);
-        }
-        .week-block:hover {
-            box-shadow: var(--shadow-md);
-        }
-        .week-header-bar {
-            background: var(--bg-card-alt);
-            padding: 8px 14px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            cursor: pointer;
-            user-select: none;
-            border-bottom: 1px solid var(--border-subtle);
-            transition: background var(--transition-fast);
-        }
-        .week-header-bar:hover {
-            background: rgba(255, 255, 255, 0.03);
-        }
-        .week-header-title {
-            font-family: var(--font-mono);
-            font-size: 12px;
-            font-weight: 700;
-            letter-spacing: 0.06em;
-            color: var(--text-primary);
-        }
-        .week-header-badge {
-            font-size: 10px;
-            font-weight: 600;
+            border-radius: 8px;
+            background: rgba(79,143,255,0.12);
             color: var(--accent-blue);
-            background: rgba(79, 143, 255, 0.1);
-            padding: 3px 10px;
-            border-radius: 10px;
-        }
-        .week-collapse-icon {
-            font-size: 16px;
-            color: var(--text-muted);
-            transition: transform var(--transition-smooth);
-        }
-        .week-content {
-            overflow: hidden;
-            transition: max-height 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-            max-height: 4000px;
-        }
-        .week-content.collapsed {
-            max-height: 0;
-        }
-        .add-row-btn {
-            background: transparent;
-            border: 1px dashed var(--border-card);
-            color: var(--text-muted);
-            font-family: var(--font-mono);
-            font-size: 10px;
-            font-weight: 600;
-            padding: 6px 14px;
-            cursor: pointer;
-            width: 100%;
-            text-align: left;
-            transition: all var(--transition-fast);
             letter-spacing: 0.04em;
         }
-        .add-row-btn:hover {
-            border-color: var(--accent-blue);
-            color: var(--accent-blue);
-            background: rgba(79, 143, 255, 0.04);
-        }
-        .row-del-btn {
-            background: transparent;
-            border: 1px solid transparent;
-            color: #555;
-            cursor: pointer;
-            font-size: 14px;
-            padding: 3px 7px;
-            border-radius: 4px;
-            transition: all var(--transition-fast);
-        }
-        .row-del-btn:hover {
-            background: rgba(239, 68, 68, 0.2);
-            border-color: var(--accent-red);
-            color: var(--accent-red);
-        }
-
-        .aht-time-input {
+        .kpi-input {
+            width: 100%;
             background: var(--bg-input);
             border: 1px solid var(--border-subtle);
             color: var(--text-primary);
             font-family: var(--font-mono);
             font-size: 13px;
             font-weight: 600;
-            padding: 5px 10px;
-            width: 130px;
-            border-radius: 6px;
+            padding: 9px 14px;
+            border-radius: var(--radius-sm);
             outline: none;
-            text-align: center;
             transition: all var(--transition-fast);
-            letter-spacing: 0.04em;
         }
-        .aht-time-input:focus {
+        .kpi-input:focus {
             border-color: var(--accent-blue);
-            box-shadow: 0 0 0 3px rgba(79, 143, 255, 0.15);
+            box-shadow: 0 0 0 3px rgba(79,143,255,0.12);
+            background: rgba(30,40,69,0.9);
         }
-        .aht-time-input.invalid {
-            border-color: var(--accent-red);
+        .kpi-input::placeholder { color: var(--text-muted); font-weight: 400; }
+        .kpi-input-hint { font-size: 9px; color: var(--text-muted); margin-top: 2px; letter-spacing: 0.02em; }
+
+        .kpi-divider { height: 1px; background: var(--border-subtle); margin: 2px 0; }
+
+        .kpi-attendance-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+
+        .kpi-btn-row { display: flex; gap: 10px; padding-top: 4px; }
+        .kpi-calc-btn {
+            flex: 1;
+            background: linear-gradient(135deg, #4f8fff, #8b5cf6);
+            color: #fff;
+            border: none;
+            border-radius: var(--radius-sm);
+            font-family: var(--font-sans);
+            font-size: 13px;
+            font-weight: 700;
+            padding: 12px 20px;
+            cursor: pointer;
+            letter-spacing: 0.02em;
+            transition: all var(--transition-smooth);
+            box-shadow: 0 4px 20px rgba(79,143,255,0.3);
         }
-        .aht-result-display {
-            font-family: var(--font-mono);
-            font-size: 42px;
-            font-weight: 900;
-            letter-spacing: -0.03em;
+        .kpi-calc-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 30px rgba(79,143,255,0.4); }
+        .kpi-calc-btn:active { transform: scale(0.98); }
+        .kpi-reset-btn {
+            background: var(--bg-card);
+            color: var(--text-secondary);
+            border: 1px solid var(--border-card);
+            border-radius: var(--radius-sm);
+            font-family: var(--font-sans);
+            font-size: 12px;
+            font-weight: 600;
+            padding: 12px 18px;
+            cursor: pointer;
+            letter-spacing: 0.02em;
+            transition: all var(--transition-smooth);
+        }
+        .kpi-reset-btn:hover { border-color: var(--accent-red); color: var(--accent-red); }
+
+        /* Results Panel */
+        .kpi-results-panel { display: flex; flex-direction: column; gap: 14px; }
+
+        /* Bonus Card */
+        .bonus-result-card {
+            border-radius: var(--radius-lg);
+            padding: 24px;
             text-align: center;
-            line-height: 1;
-            transition: color 0.4s;
+            border: 2px solid transparent;
+            transition: all 0.5s cubic-bezier(0.4,0,0.2,1);
+            position: relative;
+            overflow: hidden;
         }
-        .aht-perf-tag {
+        .bonus-result-card::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            opacity: 0.06;
+            background: radial-gradient(circle at 50% 0%, white, transparent 70%);
+            pointer-events: none;
+        }
+        .bonus-card-green  { background: linear-gradient(135deg, rgba(34,197,94,0.15), rgba(6,182,212,0.1)); border-color: rgba(34,197,94,0.4); box-shadow: 0 0 40px rgba(34,197,94,0.15); }
+        .bonus-card-yellow { background: linear-gradient(135deg, rgba(240,180,41,0.15), rgba(249,115,22,0.1)); border-color: rgba(240,180,41,0.4); box-shadow: 0 0 40px rgba(240,180,41,0.12); }
+        .bonus-card-orange { background: linear-gradient(135deg, rgba(249,115,22,0.15), rgba(239,68,68,0.1)); border-color: rgba(249,115,22,0.4); box-shadow: 0 0 40px rgba(249,115,22,0.12); }
+        .bonus-card-red    { background: linear-gradient(135deg, rgba(239,68,68,0.15), rgba(139,0,0,0.1)); border-color: rgba(239,68,68,0.4); box-shadow: 0 0 40px rgba(239,68,68,0.12); }
+        .bonus-card-idle   { background: var(--bg-glass); border-color: var(--border-card); }
+
+        .bonus-card-label { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: var(--text-muted); margin-bottom: 4px; }
+        .bonus-card-agent { font-size: 15px; font-weight: 700; color: var(--text-primary); margin-bottom: 12px; min-height: 20px; }
+        .bonus-kpi-score {
+            font-family: var(--font-mono);
+            font-size: 52px;
+            font-weight: 900;
+            letter-spacing: -0.04em;
+            line-height: 1;
+            transition: all 0.5s;
+        }
+        .bonus-kpi-score.green  { color: #22c55e; }
+        .bonus-kpi-score.yellow { color: #f0b429; }
+        .bonus-kpi-score.orange { color: #f97316; }
+        .bonus-kpi-score.red    { color: #ef4444; }
+        .bonus-kpi-score.idle   { color: var(--text-muted); }
+        .bonus-amount-label { font-size: 11px; color: var(--text-muted); margin: 6px 0 4px; letter-spacing: 0.04em; }
+        .bonus-amount-value {
+            font-family: var(--font-mono);
+            font-size: 32px;
+            font-weight: 900;
+            letter-spacing: -0.02em;
+            transition: all 0.5s;
+        }
+        .bonus-tier-badge {
             display: inline-block;
-            padding: 5px 18px;
+            margin-top: 10px;
+            padding: 5px 16px;
             border-radius: 20px;
             font-size: 11px;
             font-weight: 700;
             letter-spacing: 0.06em;
-            transition: all 0.3s;
         }
-        .aht-perf-good {
-            background: rgba(34, 197, 94, 0.15);
-            color: #22c55e;
-            border: 1px solid rgba(34, 197, 94, 0.3);
-        }
-        .aht-perf-avg {
-            background: rgba(240, 180, 41, 0.15);
-            color: #f0b429;
-            border: 1px solid rgba(240, 180, 41, 0.3);
-        }
-        .aht-perf-high {
-            background: rgba(239, 68, 68, 0.15);
-            color: #ef4444;
-            border: 1px solid rgba(239, 68, 68, 0.3);
-        }
+        .bonus-tier-green  { background: rgba(34,197,94,0.2); color: #22c55e; border: 1px solid rgba(34,197,94,0.3); }
+        .bonus-tier-yellow { background: rgba(240,180,41,0.2); color: #f0b429; border: 1px solid rgba(240,180,41,0.3); }
+        .bonus-tier-orange { background: rgba(249,115,22,0.2); color: #f97316; border: 1px solid rgba(249,115,22,0.3); }
+        .bonus-tier-red    { background: rgba(239,68,68,0.2); color: #ef4444; border: 1px solid rgba(239,68,68,0.3); }
+        .bonus-tier-idle   { background: var(--bg-card); color: var(--text-muted); border: 1px solid var(--border-subtle); }
 
-        .toast-container {
-            position: fixed;
-            top: 70px;
-            right: 20px;
-            z-index: 9999;
-            display: flex;
-            flex-direction: column;
-            gap: 8px;
-            pointer-events: none;
+        /* Breakdown Table */
+        .breakdown-card { background: var(--bg-glass); backdrop-filter: blur(16px); border: 1px solid var(--border-card); border-radius: var(--radius-lg); overflow: hidden; }
+        .breakdown-header { padding: 12px 18px; border-bottom: 1px solid var(--border-subtle); font-size: 13px; font-weight: 700; color: var(--text-primary); }
+        .breakdown-table { width: 100%; border-collapse: collapse; font-size: 12px; }
+        .breakdown-table th { background: var(--bg-card-alt); color: var(--text-muted); padding: 8px 12px; font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; border-bottom: 1px solid var(--border-subtle); text-align: center; }
+        .breakdown-table th:first-child { text-align: left; }
+        .breakdown-table td { padding: 9px 12px; border-bottom: 1px solid var(--border-subtle); text-align: center; color: var(--text-primary); transition: background 0.15s; }
+        .breakdown-table td:first-child { text-align: left; }
+        .breakdown-table tr:last-child td { border-bottom: none; }
+        .breakdown-table tbody tr:hover td { background: rgba(79,143,255,0.04); }
+        .breakdown-table .total-row td {
+            background: rgba(79,143,255,0.08) !important;
+            font-weight: 800;
+            font-family: var(--font-mono);
+            border-top: 1px solid rgba(79,143,255,0.2);
         }
-        .toast {
-            pointer-events: auto;
-            font-family: var(--font-sans);
-            font-size: 12px;
-            font-weight: 600;
-            padding: 10px 18px;
-            border-radius: 10px;
-            color: #fff;
-            letter-spacing: 0.02em;
-            box-shadow: var(--shadow-lg);
-            animation: toastIn 0.35s ease, toastOut 0.4s ease 3s forwards;
-            max-width: 440px;
-            backdrop-filter: blur(12px);
-        }
-        .toast-success { background: rgba(34, 197, 94, 0.85); }
-        .toast-error   { background: rgba(239, 68, 68, 0.85); }
-        .toast-info    { background: rgba(79, 143, 255, 0.85); }
-        @keyframes toastIn {
-            from { opacity: 0; transform: translateX(40px); }
-            to   { opacity: 1; transform: translateX(0); }
-        }
-        @keyframes toastOut {
-            from { opacity: 1; transform: translateX(0); }
-            to   { opacity: 0; transform: translateX(40px); }
-        }
+        .kpi-name-cell { display: flex; align-items: center; gap: 8px; font-weight: 600; }
+        .kpi-dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
+        .score-pill { display: inline-block; padding: 2px 10px; border-radius: 8px; font-family: var(--font-mono); font-size: 11px; font-weight: 700; }
+        .score-excellent { background: rgba(34,197,94,0.15); color: #22c55e; }
+        .score-good      { background: rgba(6,182,212,0.15); color: #06b6d4; }
+        .score-average   { background: rgba(240,180,41,0.15); color: #f0b429; }
+        .score-poor      { background: rgba(249,115,22,0.15); color: #f97316; }
+        .score-zero      { background: rgba(239,68,68,0.15); color: #ef4444; }
+        .score-idle      { background: var(--bg-card-alt); color: var(--text-muted); }
+        .weight-cell     { color: var(--text-muted); font-family: var(--font-mono); font-size: 11px; }
+        .contrib-cell    { font-family: var(--font-mono); font-weight: 700; font-size: 12px; }
 
-        .monthly-hero {
-            background: var(--gradient-dark);
-            border-radius: var(--radius-xl);
-            padding: 20px 24px;
-            border: 1px solid var(--border-card);
-            position: relative;
-            overflow: hidden;
-            margin-bottom: 18px;
-        }
-        .monthly-hero::after {
-            content: '';
-            position: absolute;
-            top: -60px;
-            right: -40px;
-            width: 200px;
-            height: 200px;
-            border-radius: 50%;
-            background: var(--accent-blue);
-            opacity: 0.06;
-            pointer-events: none;
-        }
-        .monthly-hero-title {
-            font-size: 20px;
-            font-weight: 900;
-            letter-spacing: -0.03em;
-            color: var(--text-primary);
-            position: relative;
-            z-index: 1;
-        }
-        .monthly-hero-sub {
-            font-size: 11px;
-            color: var(--text-muted);
-            letter-spacing: 0.06em;
-            text-transform: uppercase;
-            margin-top: 2px;
-            position: relative;
-            z-index: 1;
-        }
+        /* Weight visualization bar */
+        .weight-bar-wrap { margin-top: 4px; height: 3px; background: rgba(255,255,255,0.05); border-radius: 2px; overflow: hidden; }
+        .weight-bar-fill { height: 100%; border-radius: 2px; transition: width 0.6s; }
 
-        @media print {
-            .navbar, .btn, .toast-container, .add-row-btn, .row-del-btn { display: none !important; }
-            body { background: #fff; color: #000; }
-            .glass-card { border: 1px solid #ccc; box-shadow: none; }
-        }
+        /* Scoring Reference */
+        .ref-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 10px; margin-top: 4px; }
+        @media (max-width: 900px) { .ref-grid { grid-template-columns: repeat(2,1fr); } }
+        @media (max-width: 600px) { .ref-grid { grid-template-columns: 1fr; } }
+        .ref-card { background: var(--bg-glass); border: 1px solid var(--border-subtle); border-radius: var(--radius-md); overflow: hidden; }
+        .ref-card-header { background: var(--bg-card-alt); padding: 7px 12px; font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.07em; color: var(--text-muted); display: flex; align-items: center; gap: 6px; }
+        .ref-card-body { padding: 0; }
+        .ref-row { display: flex; justify-content: space-between; align-items: center; padding: 5px 12px; border-bottom: 1px solid var(--border-subtle); font-size: 10px; }
+        .ref-row:last-child { border-bottom: none; }
+        .ref-range { font-family: var(--font-mono); color: var(--text-secondary); font-size: 10px; }
+        .ref-score { font-family: var(--font-mono); font-weight: 700; font-size: 10px; }
+        .ref-score.s110 { color: #22c55e; }
+        .ref-score.s100 { color: #06b6d4; }
+        .ref-score.s90  { color: #4f8fff; }
+        .ref-score.s80  { color: #8b5cf6; }
+        .ref-score.s75  { color: #f0b429; }
+        .ref-score.s50  { color: #f97316; }
+        .ref-score.s40  { color: #ef4444; }
+        .ref-score.s0   { color: #6b7394; }
 
-        .animate-pop {
-            animation: popIn 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+        /* Bonus tiers reference */
+        .bonus-tiers-list { display: flex; flex-direction: column; gap: 4px; }
+        .bonus-tier-row {
+            display: flex; align-items: center; justify-content: space-between;
+            padding: 7px 14px; border-radius: var(--radius-sm);
+            border: 1px solid transparent; transition: all 0.2s;
         }
-        @keyframes popIn {
-            from { opacity: 0; transform: scale(0.9); }
-            to   { opacity: 1; transform: none; }
-        }
-        .pulse-dot {
-            width: 8px;
-            height: 8px;
-            border-radius: 50%;
-            background: var(--accent-green);
-            display: inline-block;
-            animation: pulse 2s infinite;
-        }
-        @keyframes pulse {
-            0%, 100% { box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.5); }
-            50%      { box-shadow: 0 0 0 10px rgba(34, 197, 94, 0); }
-        }
+        .bonus-tier-row.active { transform: scale(1.02); }
+        .bonus-tier-row.tier-top    { background: rgba(34,197,94,0.08); border-color: rgba(34,197,94,0.2); }
+        .bonus-tier-row.tier-high   { background: rgba(34,197,94,0.05); border-color: rgba(34,197,94,0.12); }
+        .bonus-tier-row.tier-mid    { background: rgba(240,180,41,0.06); border-color: rgba(240,180,41,0.15); }
+        .bonus-tier-row.tier-low    { background: rgba(249,115,22,0.06); border-color: rgba(249,115,22,0.15); }
+        .bonus-tier-row.tier-zero   { background: rgba(239,68,68,0.05); border-color: rgba(239,68,68,0.12); }
+        .tier-range  { font-family: var(--font-mono); font-size: 11px; color: var(--text-secondary); }
+        .tier-amount { font-family: var(--font-mono); font-size: 13px; font-weight: 800; }
+        .tier-amount.c-green  { color: #22c55e; }
+        .tier-amount.c-yellow { color: #f0b429; }
+        .tier-amount.c-orange { color: #f97316; }
+        .tier-amount.c-red    { color: #ef4444; }
+        .tier-indicator { width: 6px; height: 6px; border-radius: 50%; background: var(--border-subtle); transition: all 0.3s; }
+        .tier-indicator.lit { background: #22c55e; box-shadow: 0 0 8px rgba(34,197,94,0.6); }
     </style>
 </head>
 <body>
-    <div class="app-shell">
-        <nav class="navbar">
-            <div class="navbar-brand"><span class="brand-icon">📊</span> QA Analytics</div>
-            <div class="navbar-tabs" id="navbar-tabs">
-                <button class="nav-tab active" data-tab="scorecard">📋 Scorecard</button>
-                <button class="nav-tab" data-tab="aht">⏱ AHT Calc</button>
-                <button class="nav-tab" data-tab="monthly">📈 Monthly</button>
-                <button class="nav-tab" data-tab="kpi">🎯 KPI Monitor</button>
-            </div>
-            <div class="navbar-actions">
-                <button class="btn btn-icon" id="theme-btn" onclick="cycleTheme()" title="Cycle theme">🌙</button>
-                <button class="btn btn-outline-red" onclick="resetAll()">🔄 Reset</button>
-                <button class="btn" onclick="triggerImportCSV()">📥 Import</button>
-                <button class="btn btn-accent" onclick="exportCSV()">📤 Export</button>
-                <button class="btn" onclick="window.print()">🖨️ Print</button>
-            </div>
-        </nav>
+<div class="app-shell">
+    <nav class="navbar">
+        <div class="navbar-brand"><span class="brand-icon">📊</span> QA Analytics</div>
+        <div class="navbar-tabs" id="navbar-tabs">
+            <button class="nav-tab active" data-tab="scorecard">📋 Scorecard</button>
+            <button class="nav-tab" data-tab="aht">⏱ AHT Calc</button>
+            <button class="nav-tab" data-tab="monthly">📈 Monthly</button>
+            <button class="nav-tab" data-tab="kpi">🎯 KPI Monitor</button>
+            <button class="nav-tab" data-tab="bonus">💰 Bonus Calc</button>
+        </div>
+        <div class="navbar-actions">
+            <button class="btn btn-icon" id="theme-btn" onclick="cycleTheme()" title="Cycle theme">🌙</button>
+            <button class="btn btn-outline-red" onclick="resetAll()">🔄 Reset</button>
+            <button class="btn" onclick="triggerImportCSV()">📥 Import</button>
+            <button class="btn btn-accent" onclick="exportCSV()">📤 Export</button>
+            <button class="btn" onclick="window.print()">🖨️ Print</button>
+        </div>
+    </nav>
 
-        <div class="toast-container" id="toast-container"></div>
-        <input type="file" id="importCsvInput" accept=".csv" hidden onchange="handleCSVImport(event)" />
+    <div class="toast-container" id="toast-container"></div>
+    <input type="file" id="importCsvInput" accept=".csv" hidden onchange="handleCSVImport(event)" />
 
-        <div class="main-content">
-            <!-- Scorecard Tab -->
-            <div id="tab-scorecard" class="tab-page active">
-                <div class="stat-cards-row" id="scorecard-stat-cards"></div>
-                <div class="grid-main-sidebar">
-                    <div id="weeks-container"></div>
-                    <div id="kpi-sidebar"></div>
-                </div>
-                <div class="glass-card" style="margin-top:14px;" id="summary-card-bottom"></div>
+    <div class="main-content">
+        <!-- Scorecard Tab -->
+        <div id="tab-scorecard" class="tab-page active">
+            <div class="stat-cards-row" id="scorecard-stat-cards"></div>
+            <div class="grid-main-sidebar">
+                <div id="weeks-container"></div>
+                <div id="kpi-sidebar"></div>
             </div>
+            <div class="glass-card" style="margin-top:14px;" id="summary-card-bottom"></div>
+        </div>
 
-            <!-- AHT Calculator Tab -->
-            <div id="tab-aht" class="tab-page">
-                <div class="stat-cards-row" id="aht-stat-cards"></div>
-                <div class="grid-2col" style="align-items:start;">
-                    <div class="glass-card">
-                        <div class="glass-card-header">
-                            <span class="glass-card-title">📞 Call Entries — <span id="aht-week-label">Week 1</span></span>
-                            <span class="badge badge-blue" id="aht-badge">0 calls</span>
-                        </div>
-                        <div class="glass-card-body no-padding">
-                            <div class="table-wrap">
-                                <table class="data-table">
-                                    <thead><tr><th>#</th><th>Talk Time</th><th>Seconds</th><th style="width:44px">Del</th></tr></thead>
-                                    <tbody id="aht-tbody"></tbody>
-                                </table>
-                            </div>
-                            <button class="add-row-btn" onclick="ahtAddRow()" style="border-radius:0 0 var(--radius-md) var(--radius-md);">+ Add Call</button>
-                        </div>
-                        <div style="padding:12px 18px;display:flex;gap:8px;flex-wrap:wrap;">
-                            <select id="aht-week-select" onchange="ahtSwitchWeek()" style="background:var(--bg-input);border:1px solid var(--border-card);color:var(--text-primary);font-family:var(--font-mono);font-size:12px;padding:6px 12px;border-radius:8px;outline:none;cursor:pointer;">
-                                <option value="0">Week 1</option>
-                                <option value="1">Week 2</option>
-                                <option value="2">Week 3</option>
-                                <option value="3">Week 4</option>
-                                <option value="4">Week 5</option>
-                            </select>
-                            <button class="btn btn-outline-red" onclick="ahtResetWeek()">🗑 Reset Week</button>
-                            <button class="btn btn-accent" onclick="ahtExportCSV()">📥 Export CSV</button>
-                        </div>
+        <!-- AHT Calculator Tab -->
+        <div id="tab-aht" class="tab-page">
+            <div class="stat-cards-row" id="aht-stat-cards"></div>
+            <div class="grid-2col" style="align-items:start;">
+                <div class="glass-card">
+                    <div class="glass-card-header">
+                        <span class="glass-card-title">📞 Call Entries — <span id="aht-week-label">Week 1</span></span>
+                        <span class="badge badge-blue" id="aht-badge">0 calls</span>
                     </div>
-                    <div style="display:flex;flex-direction:column;gap:14px;">
-                        <div class="glass-card" id="aht-summary-card"></div>
-                        <div class="glass-card">
-                            <div class="glass-card-header"><span class="glass-card-title">⚙ Thresholds (seconds)</span></div>
-                            <div class="glass-card-body">
-                                <div style="display:flex;flex-direction:column;gap:8px;">
-                                    <div style="display:flex;align-items:center;gap:8px;"><span style="width:10px;height:10px;border-radius:50%;background:#22c55e;"></span><span style="font-size:11px;color:var(--text-secondary);flex:1;">Good (≤)</span><input type="number" id="thresh-good" value="240" min="0" oninput="ahtRecalc()" style="width:60px;background:var(--bg-input);border:1px solid var(--border-subtle);color:var(--text-primary);padding:4px 8px;border-radius:6px;text-align:center;font-family:var(--font-mono);font-size:11px;"></div>
-                                    <div style="display:flex;align-items:center;gap:8px;"><span style="width:10px;height:10px;border-radius:50%;background:#f0b429;"></span><span style="font-size:11px;color:var(--text-secondary);flex:1;">Average (≤)</span><input type="number" id="thresh-avg" value="360" min="0" oninput="ahtRecalc()" style="width:60px;background:var(--bg-input);border:1px solid var(--border-subtle);color:var(--text-primary);padding:4px 8px;border-radius:6px;text-align:center;font-family:var(--font-mono);font-size:11px;"></div>
-                                    <div style="display:flex;align-items:center;gap:8px;"><span style="width:10px;height:10px;border-radius:50%;background:#ef4444;"></span><span style="font-size:11px;color:var(--text-secondary);flex:1;">High (>avg)</span><span style="font-size:10px;color:var(--text-muted);">auto</span></div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="glass-card" style="margin-top:16px;">
-                    <div class="glass-card-header"><span class="glass-card-title">📈 Weekly AHT Trend</span></div>
-                    <div class="glass-card-body"><canvas id="aht-trend-chart" height="160"></canvas></div>
-                </div>
-            </div>
-
-            <!-- Monthly Tab -->
-            <div id="tab-monthly" class="tab-page">
-                <div class="monthly-hero">
-                    <div class="monthly-hero-title">📆 Monthly Performance Overview</div>
-                    <div class="monthly-hero-sub">All Weeks Combined — Auto-Calculated</div>
-                </div>
-                <div class="stat-cards-row" id="monthly-stat-cards"></div>
-                <div class="grid-2col" style="align-items:start;">
-                    <div class="glass-card">
-                        <div class="glass-card-header"><span class="glass-card-title">📊 Weekly Comparison</span></div>
-                        <div class="glass-card-body"><canvas id="monthly-bar-chart" height="200"></canvas></div>
-                    </div>
-                    <div class="glass-card">
-                        <div class="glass-card-header"><span class="glass-card-title">🎯 KPI Achievement</span></div>
-                        <div class="glass-card-body" id="monthly-kpi-body"></div>
-                    </div>
-                </div>
-                <div class="glass-card" style="margin-top:16px;">
-                    <div class="glass-card-header"><span class="glass-card-title">📋 Weekly Breakdown Table</span></div>
                     <div class="glass-card-body no-padding">
                         <div class="table-wrap">
-                            <table class="data-table" id="monthly-breakdown-table"></table>
+                            <table class="data-table">
+                                <thead><tr><th>#</th><th>Talk Time</th><th>Seconds</th><th style="width:44px">Del</th></tr></thead>
+                                <tbody id="aht-tbody"></tbody>
+                            </table>
+                        </div>
+                        <button class="add-row-btn" onclick="ahtAddRow()" style="border-radius:0 0 var(--radius-md) var(--radius-md);">+ Add Call</button>
+                    </div>
+                    <div style="padding:12px 18px;display:flex;gap:8px;flex-wrap:wrap;">
+                        <select id="aht-week-select" onchange="ahtSwitchWeek()" style="background:var(--bg-input);border:1px solid var(--border-card);color:var(--text-primary);font-family:var(--font-mono);font-size:12px;padding:6px 12px;border-radius:8px;outline:none;cursor:pointer;">
+                            <option value="0">Week 1</option><option value="1">Week 2</option>
+                            <option value="2">Week 3</option><option value="3">Week 4</option>
+                            <option value="4">Week 5</option>
+                        </select>
+                        <button class="btn btn-outline-red" onclick="ahtResetWeek()">🗑 Reset Week</button>
+                        <button class="btn btn-accent" onclick="ahtExportCSV()">📥 Export CSV</button>
+                    </div>
+                </div>
+                <div style="display:flex;flex-direction:column;gap:14px;">
+                    <div class="glass-card" id="aht-summary-card"></div>
+                    <div class="glass-card">
+                        <div class="glass-card-header"><span class="glass-card-title">⚙ Thresholds (seconds)</span></div>
+                        <div class="glass-card-body">
+                            <div style="display:flex;flex-direction:column;gap:8px;">
+                                <div style="display:flex;align-items:center;gap:8px;"><span style="width:10px;height:10px;border-radius:50%;background:#22c55e;"></span><span style="font-size:11px;color:var(--text-secondary);flex:1;">Good (≤)</span><input type="number" id="thresh-good" value="240" min="0" oninput="ahtRecalc()" style="width:60px;background:var(--bg-input);border:1px solid var(--border-subtle);color:var(--text-primary);padding:4px 8px;border-radius:6px;text-align:center;font-family:var(--font-mono);font-size:11px;"></div>
+                                <div style="display:flex;align-items:center;gap:8px;"><span style="width:10px;height:10px;border-radius:50%;background:#f0b429;"></span><span style="font-size:11px;color:var(--text-secondary);flex:1;">Average (≤)</span><input type="number" id="thresh-avg" value="360" min="0" oninput="ahtRecalc()" style="width:60px;background:var(--bg-input);border:1px solid var(--border-subtle);color:var(--text-primary);padding:4px 8px;border-radius:6px;text-align:center;font-family:var(--font-mono);font-size:11px;"></div>
+                                <div style="display:flex;align-items:center;gap:8px;"><span style="width:10px;height:10px;border-radius:50%;background:#ef4444;"></span><span style="font-size:11px;color:var(--text-secondary);flex:1;">High (>avg)</span><span style="font-size:10px;color:var(--text-muted);">auto</span></div>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
+            <div class="glass-card" style="margin-top:16px;">
+                <div class="glass-card-header"><span class="glass-card-title">📈 Weekly AHT Trend</span></div>
+                <div class="glass-card-body"><canvas id="aht-trend-chart" height="160"></canvas></div>
+            </div>
+        </div>
 
-            <!-- KPI Monitor Tab -->
-            <div id="tab-kpi" class="tab-page">
-                <div class="monthly-hero">
-                    <div class="monthly-hero-title">🎯 KPI Monitoring Dashboard</div>
-                    <div class="monthly-hero-sub">Real-time Target Tracking & Performance Indicators</div>
+        <!-- Monthly Tab -->
+        <div id="tab-monthly" class="tab-page">
+            <div class="monthly-hero">
+                <div class="monthly-hero-title">📆 Monthly Performance Overview</div>
+                <div class="monthly-hero-sub">All Weeks Combined — Auto-Calculated</div>
+            </div>
+            <div class="stat-cards-row" id="monthly-stat-cards"></div>
+            <div class="grid-2col" style="align-items:start;">
+                <div class="glass-card">
+                    <div class="glass-card-header"><span class="glass-card-title">📊 Weekly Comparison</span></div>
+                    <div class="glass-card-body"><canvas id="monthly-bar-chart" height="200"></canvas></div>
                 </div>
-                <div class="stat-cards-row" id="kpi-stat-cards"></div>
-                <div class="grid-2col" style="align-items:start;">
-                    <div class="glass-card">
-                        <div class="glass-card-header"><span class="glass-card-title">📈 KPI Progress Bars</span></div>
-                        <div class="glass-card-body" id="kpi-progress-body"></div>
-                    </div>
-                    <div class="glass-card">
-                        <div class="glass-card-header"><span class="glass-card-title">🏆 Performance Ranking</span></div>
-                        <div class="glass-card-body" id="kpi-ranking-body"></div>
-                    </div>
+                <div class="glass-card">
+                    <div class="glass-card-header"><span class="glass-card-title">🎯 KPI Achievement</span></div>
+                    <div class="glass-card-body" id="monthly-kpi-body"></div>
                 </div>
-                <div class="glass-card" style="margin-top:16px;">
-                    <div class="glass-card-header"><span class="glass-card-title">📊 KPI Trend Chart</span></div>
-                    <div class="glass-card-body"><canvas id="kpi-trend-chart" height="180"></canvas></div>
+            </div>
+            <div class="glass-card" style="margin-top:16px;">
+                <div class="glass-card-header"><span class="glass-card-title">📋 Weekly Breakdown Table</span></div>
+                <div class="glass-card-body no-padding">
+                    <div class="table-wrap"><table class="data-table" id="monthly-breakdown-table"></table></div>
                 </div>
             </div>
         </div>
-    </div>
 
-    <script>
-        (function() {
-            // ---------- STATE ----------
-            const NUM_WEEKS = 5;
-            const NUM_AHT_WEEKS = 5;   // Week 5 added
-            let weekData = Array.from({ length: NUM_WEEKS }, () => [
-                { date: '', k: '', c: '', calls: '' },
-                { date: '', k: '', c: '', calls: '' },
-                { date: '', k: '', c: '', calls: '' },
-            ]);
-            let weekCollapsed = Array(NUM_WEEKS).fill(false);
-            let ahtWeeks = Array.from({ length: NUM_AHT_WEEKS }, () => []);
-            let ahtCurrentWeek = 0;
-            let ahtChart = null;
-            let monthlyBarChart = null;
-            let kpiTrendChart = null;
-            let currentTab = 'scorecard';
-
-            const $ = (id) => document.getElementById(id);
-            const safeAvg = arr => { const v = arr.map(x => parseFloat(x)).filter(x => !isNaN(x) && x > 0); return v.length ? v.reduce((a,b)=>a+b,0)/v.length : 0; };
-            const safeSum = arr => arr.map(x => parseFloat(x) || 0).reduce((a,b)=>a+b,0);
-
-            function calcWeekStats(w) {
-                const rows = weekData[w];
-                const kVals = rows.map(r => r.k).filter(v => v !== '' && !isNaN(parseFloat(v)));
-                const cVals = rows.map(r => r.c).filter(v => v !== '' && !isNaN(parseFloat(v)));
-                const avgK = safeAvg(kVals), avgC = safeAvg(cVals);
-                const totalCalls = safeSum(rows.map(r => r.calls));
-                const kCount = kVals.length, cCount = cVals.length;
-                return { avgK, avgC, totalCalls, kCount, cCount, blended:(avgK+avgC)>0?(avgK+avgC)/2:0, kScore:avgK*kCount, cScore:avgC*cCount, str:totalCalls>0?(kCount/totalCalls)*100:0 };
-            }
-
-            function allWeekStats() { return Array.from({length:NUM_WEEKS},(_,w)=>calcWeekStats(w)); }
-
-            function calcMonthlyStats() {
-                const stats = allWeekStats();
-                const tKScore = stats.reduce((a,s)=>a+s.kScore,0), tCScore = stats.reduce((a,s)=>a+s.cScore,0);
-                const tKCount = stats.reduce((a,s)=>a+s.kCount,0), tCCount = stats.reduce((a,s)=>a+s.cCount,0);
-                const tCalls  = stats.reduce((a,s)=>a+s.totalCalls,0);
-                const fK = tKCount>0?tKScore/tKCount:0, fC = tCCount>0?tCScore/tCCount:0;
-                const blended = (fK+fC)>0?(fK+fC)/2:0;
-                const str = tCalls>0?(tKCount/tCalls)*100:0;
-                let bestWeek=null, worstWeek=null, bestVal=-1, worstVal=999;
-                stats.forEach((s,i)=>{ if(s.blended>0 && s.blended>bestVal){ bestVal=s.blended; bestWeek=i+1; } if(s.blended>0 && s.blended<worstVal){ worstVal=s.blended; worstWeek=i+1; } });
-                return { tKScore,tCScore,tKCount,tCCount,tCalls,fK,fC,blended,str,bestWeek,worstWeek,bestVal,worstVal, weeklyStats:stats };
-            }
-
-            function calcMonthlyAHT() {
-                let allSecs=[];
-                ahtWeeks.forEach(calls => calls.forEach(v => { const s=ahtParseTime(v); if(s!==null) allSecs.push(s); }));
-                const total=allSecs.reduce((a,b)=>a+b,0), count=allSecs.length;
-                const avg=count>0?Math.round(total/count):0;
-                return {total,count,avg,allSecs};
-            }
-
-            function ahtParseTime(str) {
-                if(!str||!str.trim()) return null;
-                const parts=str.trim().split(':').map(Number);
-                if(parts.some(isNaN)) return null;
-                if(parts.length===2) return parts[0]*60+parts[1];
-                if(parts.length===3) return parts[0]*3600+parts[1]*60+parts[2];
-                return null;
-            }
-
-            function ahtFormatTime(secs) {
-                if(secs===null||isNaN(secs)) return '–';
-                const h=Math.floor(secs/3600), m=Math.floor((secs%3600)/60), s=secs%60;
-                if(h>0) return `${h}:${String(m).padStart(2,'0')}:${String(s).padStart(2,'0')}`;
-                return `${m}:${String(s).padStart(2,'0')}`;
-            }
-
-            function saveToLocalStorage() {
-                const data = {
-                    weekData, weekCollapsed, ahtWeeks,
-                    agentName: $('agent-name')?.value || '',
-                    ahtSecs: $('aht-secs-input')?.value || '',
-                    holdPct: $('hold-pct')?.value || '',
-                    transferPct: $('transfer-pct')?.value || '',
-                    ttsPct: $('tts-pct')?.value || '',
-                    ahtThreshGood: $('thresh-good')?.value || '240',
-                    ahtThreshAvg: $('thresh-avg')?.value || '360',
-                };
-                localStorage.setItem('qa_scorecard_v4', JSON.stringify(data));
-            }
-
-            function loadFromLocalStorage() {
-                try {
-                    const theme = localStorage.getItem('qa_theme');
-                    if (theme) document.documentElement.setAttribute('data-theme', theme);
-                    const raw = localStorage.getItem('qa_scorecard_v4');
-                    if (!raw) return;
-                    const data = JSON.parse(raw);
-                    if(data.weekData && Array.isArray(data.weekData)) {
-                        weekData = data.weekData;
-                        while(weekData.length < NUM_WEEKS) weekData.push([{date:'',k:'',c:'',calls:''}]);
-                    }
-                    if(data.weekCollapsed) weekCollapsed = data.weekCollapsed.slice(0,NUM_WEEKS);
-                    if(data.ahtWeeks && Array.isArray(data.ahtWeeks)) {
-                        ahtWeeks = data.ahtWeeks;
-                        // FIX: ensure ahtWeeks always has NUM_AHT_WEEKS (5) slots
-                        while(ahtWeeks.length < NUM_AHT_WEEKS) ahtWeeks.push([]);
-                    }
-                    if(data.ahtThreshGood) $('thresh-good').value = data.ahtThreshGood;
-                    if(data.ahtThreshAvg)  $('thresh-avg').value  = data.ahtThreshAvg;
-                    setTimeout(() => {
-                        if(data.agentName && $('agent-name')) $('agent-name').value = data.agentName;
-                        if(data.ahtSecs && $('aht-secs-input')) { $('aht-secs-input').value = data.ahtSecs; updateAHT(); }
-                        if(data.holdPct && $('hold-pct')) $('hold-pct').value = data.holdPct;
-                        if(data.transferPct && $('transfer-pct')) $('transfer-pct').value = data.transferPct;
-                        if(data.ttsPct && $('tts-pct')) $('tts-pct').value = data.ttsPct;
-                    }, 100);
-                } catch(e){ console.warn('Load error:',e); }
-            }
-
-            // ---------- THEME CYCLING (dark → light → barbie → apple) ----------
-            const themes = ['dark', 'light', 'barbie', 'apple'];
-            const themeIcons = ['🌙', '☀️', '🎀', '🍏'];
-            let currentThemeIndex = 0;
-
-            function cycleTheme() {
-                currentThemeIndex = (currentThemeIndex + 1) % themes.length;
-                const theme = themes[currentThemeIndex];
-                document.documentElement.setAttribute('data-theme', theme);
-                localStorage.setItem('qa_theme', theme);
-                const btn = document.getElementById('theme-btn');
-                if(btn) btn.textContent = themeIcons[currentThemeIndex];
-                setTimeout(() => { ahtDrawChart(); drawMonthlyBarChart(); drawKPITrendChart(); }, 200);
-            }
-
-            function setThemeFromStorage() {
-                const saved = localStorage.getItem('qa_theme') || 'dark';
-                const idx = themes.indexOf(saved);
-                currentThemeIndex = idx >= 0 ? idx : 0;
-                document.documentElement.setAttribute('data-theme', themes[currentThemeIndex]);
-                const btn = document.getElementById('theme-btn');
-                if(btn) btn.textContent = themeIcons[currentThemeIndex];
-            }
-
-            // ---------- UI BUILDERS ----------
-            function buildStatCards() {
-                const m = calcMonthlyStats();
-                const html = `
-                <div class="stat-card accent-blue"><div class="stat-card-icon">📞</div><div class="stat-card-label">Total Calls</div><div class="stat-card-value">${m.tCalls}</div><div class="stat-card-sub">All 5 weeks</div></div>
-                <div class="stat-card accent-purple"><div class="stat-card-icon">⭐</div><div class="stat-card-label">Blended Score</div><div class="stat-card-value">${m.blended.toFixed(2)}</div><div class="stat-card-sub">K:${m.fK.toFixed(2)} C:${m.fC.toFixed(2)}</div><span class="stat-card-trend ${m.blended>=4.90?'trend-up':m.blended>=4.85?'trend-neutral':'trend-down'}">${m.blended>=4.90?'✓ On Track':m.blended>=4.85?'~ Close':'⚠ Below'}</span></div>
-                <div class="stat-card accent-gold"><div class="stat-card-icon">📈</div><div class="stat-card-label">STR</div><div class="stat-card-value">${m.str.toFixed(1)}%</div><div class="stat-card-sub">Target 30%</div><span class="stat-card-trend ${m.str>=30?'trend-up':'trend-down'}">${m.str>=30?'✓ Met':'⚠ Below'}</span></div>
-                <div class="stat-card accent-cyan"><div class="stat-card-icon">🏆</div><div class="stat-card-label">Best Week</div><div class="stat-card-value">${m.bestWeek?'W'+m.bestWeek:'–'}</div><div class="stat-card-sub">${m.bestVal>0?m.bestVal.toFixed(2):'N/A'}</div></div>`;
-                if($('scorecard-stat-cards')) $('scorecard-stat-cards').innerHTML = html;
-            }
-
-            function buildWeekTables() {
-                const container = $('weeks-container');
-                if (!container) return;
-                container.innerHTML = '';
-                for (let w = 0; w < NUM_WEEKS; w++) container.appendChild(createWeekBlock(w));
-                for (let w = 0; w < NUM_WEEKS; w++) {
-                    const content = $(`week-content-${w}`);
-                    if (content && weekCollapsed[w]) {
-                        content.classList.add('collapsed');
-                        content.style.transition = 'none';
-                        setTimeout(() => { content.style.transition = ''; }, 50);
-                    }
-                }
-            }
-
-            function createWeekBlock(w) {
-                const block = document.createElement('div');
-                block.className = 'week-block';
-                block.id = `week-block-${w}`;
-                const stats = calcWeekStats(w);
-                block.innerHTML = `
-                <div class="week-header-bar" onclick="toggleWeekCollapse(${w})">
-                  <span class="week-header-title">📅 WEEK ${w+1}</span>
-                  <span class="week-header-badge">Blended: ${stats.blended.toFixed(2)} | Calls: ${stats.totalCalls}</span>
-                  <span class="week-collapse-icon" id="week-icon-${w}">${weekCollapsed[w]?'▸':'▾'}</span>
-                </div>
-                <div class="week-content" id="week-content-${w}">
-                  <div class="table-wrap">
-                    <table class="data-table"><thead><tr><th>Day</th><th>Survey (K)</th><th>Survey (C)</th><th>Calls</th><th style="width:36px">Del</th></tr></thead><tbody id="week-tbody-${w}"></tbody></table>
-                  </div>
-                  <button class="add-row-btn" onclick="event.stopPropagation();addRow(${w})">+ Add Row</button>
-                </div>`;
-                rebuildWeekRows(w, block.querySelector(`#week-tbody-${w}`));
-                return block;
-            }
-
-            function rebuildWeekRows(w, tbody) {
-                if (!tbody) tbody = $(`week-tbody-${w}`);
-                if (!tbody) return;
-                tbody.innerHTML = '';
-                weekData[w].forEach((row, r) => {
-                    const tr = document.createElement('tr');
-                    tr.innerHTML = `
-                  <td><input type="date" value="${row.date}" oninput="setVal(${w},${r},'date',this.value)"/></td>
-                  <td><input type="number" min="1" max="5" step="0.01" placeholder="–" value="${row.k}" oninput="setVal(${w},${r},'k',this.value)"/></td>
-                  <td><input type="number" min="1" max="5" step="0.01" placeholder="–" value="${row.c}" oninput="setVal(${w},${r},'c',this.value)"/></td>
-                  <td><input type="number" min="0" placeholder="0" value="${row.calls}" oninput="setVal(${w},${r},'calls',this.value)"/></td>
-                  <td><button class="row-del-btn" onclick="deleteRow(${w},${r})">✕</button></td>`;
-                    tbody.appendChild(tr);
-                });
-                const stats = calcWeekStats(w);
-                const arr = [
-                    { cls: 'row-highlight', label: 'AVE (K)', val: stats.avgK.toFixed(2) },
-                    { cls: 'row-highlight', label: 'AVE (C)', val: stats.avgC.toFixed(2) },
-                    { cls: 'row-gold', label: 'BLENDED', val: stats.blended.toFixed(2) },
-                    { cls: 'row-summary', label: '# Calls', val: stats.totalCalls },
-                ];
-                arr.forEach(sr => {
-                    const tr = document.createElement('tr');
-                    tr.className = sr.cls;
-                    tr.innerHTML = `<td style="text-align:left;padding-left:10px;">${sr.label}</td><td colspan="4">${sr.val}</td>`;
-                    tbody.appendChild(tr);
-                });
-            }
-
-            function buildKPISidebar() {
-                const container = $('kpi-sidebar');
-                if (!container) return;
-                const stats = allWeekStats();
-                const month = calcMonthlyStats();
-                container.innerHTML = `
-                <div class="glass-card" style="margin-bottom:10px;">
-                  <div class="glass-card-header"><span class="glass-card-title">📊 Survey Score</span></div>
-                  <div class="glass-card-body no-padding"><div class="table-wrap"><table class="data-table">
-                    <thead><tr><th></th>${[...Array(NUM_WEEKS)].map((_,i)=>`<th>W${i+1}</th>`).join('')}</tr></thead>
-                    <tbody>
-                      <tr><td style="text-align:left;color:var(--accent-gold);">KNOWLEDGE</td>${stats.map(s=>`<td>${Math.round(s.kScore)}</td>`).join('')}</tr>
-                      <tr><td style="text-align:left;color:var(--accent-gold);">COURTESY</td>${stats.map(s=>`<td>${Math.round(s.cScore)}</td>`).join('')}</tr>
-                    </tbody>
-                  </table></div></div>
-                </div>
-                <div class="glass-card" style="margin-bottom:10px;">
-                  <div class="glass-card-header"><span class="glass-card-title">📋 Survey Count</span></div>
-                  <div class="glass-card-body no-padding"><div class="table-wrap"><table class="data-table">
-                    <thead><tr><th></th>${[...Array(NUM_WEEKS)].map((_,i)=>`<th>W${i+1}</th>`).join('')}</tr></thead>
-                    <tbody>
-                      <tr><td style="text-align:left;">KNOWLEDGE</td>${stats.map(s=>`<td>${s.kCount}</td>`).join('')}</tr>
-                      <tr><td style="text-align:left;">COURTESY</td>${stats.map(s=>`<td>${s.cCount}</td>`).join('')}</tr>
-                    </tbody>
-                  </table></div></div>
-                </div>
-                <div class="glass-card" style="margin-bottom:10px;">
-                  <div class="glass-card-header"><span class="glass-card-title">🎯 Final Scores</span></div>
-                  <div class="glass-card-body">
-                    <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;text-align:center;">
-                      <div><div style="font-size:10px;color:var(--text-muted);">K</div><div style="font-size:20px;font-weight:800;">${month.fK.toFixed(2)}</div></div>
-                      <div><div style="font-size:10px;color:var(--text-muted);">C</div><div style="font-size:20px;font-weight:800;">${month.fC.toFixed(2)}</div></div>
-                      <div><div style="font-size:10px;color:var(--accent-gold);">Blended</div><div style="font-size:22px;font-weight:900;color:var(--accent-gold);">${month.blended.toFixed(2)}</div></div>
-                    </div>
-                    <div style="margin-top:8px;font-size:9px;color:var(--text-muted);text-align:center;">Targets: K≥4.85 | C≥4.90</div>
-                  </div>
+        <!-- KPI Monitor Tab -->
+        <div id="tab-kpi" class="tab-page">
+            <div class="monthly-hero">
+                <div class="monthly-hero-title">🎯 KPI Monitoring Dashboard</div>
+                <div class="monthly-hero-sub">Real-time Target Tracking & Performance Indicators</div>
+            </div>
+            <div class="stat-cards-row" id="kpi-stat-cards"></div>
+            <div class="grid-2col" style="align-items:start;">
+                <div class="glass-card">
+                    <div class="glass-card-header"><span class="glass-card-title">📈 KPI Progress Bars</span></div>
+                    <div class="glass-card-body" id="kpi-progress-body"></div>
                 </div>
                 <div class="glass-card">
-                  <div class="glass-card-header"><span class="glass-card-title">📈 STR Tracking</span></div>
-                  <div class="glass-card-body no-padding"><div class="table-wrap"><table class="data-table">
-                    <tbody>${stats.map((s,i)=>`<tr><td style="text-align:left;">W${i+1}</td><td>${s.str.toFixed(2)}%</td></tr>`).join('')}<tr class="row-gold"><td style="text-align:left;">TOTAL</td><td><strong>${month.str.toFixed(2)}%</strong></td></tr></tbody>
-                  </table></div></div>
-                  <div style="padding:8px 14px;font-size:9px;color:var(--text-muted);">Target: 30%</div>
-                </div>`;
-            }
+                    <div class="glass-card-header"><span class="glass-card-title">🏆 Performance Ranking</span></div>
+                    <div class="glass-card-body" id="kpi-ranking-body"></div>
+                </div>
+            </div>
+            <div class="glass-card" style="margin-top:16px;">
+                <div class="glass-card-header"><span class="glass-card-title">📊 KPI Trend Chart</span></div>
+                <div class="glass-card-body"><canvas id="kpi-trend-chart" height="180"></canvas></div>
+            </div>
+        </div>
 
-            function buildSummaryCard() {
-                const container = $('summary-card-bottom');
-                if (!container) return;
-                const month = calcMonthlyStats();
-                container.innerHTML = `
-                <div class="glass-card-header"><span class="glass-card-title">👤 Agent Summary</span><span class="pulse-dot"></span></div>
+        <!-- ===== BONUS CALCULATOR TAB ===== -->
+        <div id="tab-bonus" class="tab-page">
+
+            <!-- Hero banner -->
+            <div class="bonus-hero">
+                <div class="bonus-hero-title">💰 KPI Bonus Calculator</div>
+                <div class="bonus-hero-sub">Monthly Performance Bonus — Call Center Agent</div>
+            </div>
+
+            <!-- Main two-column layout -->
+            <div class="bonus-layout">
+
+                <!-- LEFT: Input Panel -->
+                <div class="kpi-input-panel">
+                    <div class="kpi-input-header">
+                        <span class="kpi-input-header-title">📝 Enter Performance Data</span>
+                        <span class="badge badge-blue">6 KPIs</span>
+                    </div>
+                    <div class="kpi-input-body">
+
+                        <!-- Agent Name -->
+                        <div class="kpi-field-group">
+                            <div class="kpi-field-label"><span>👤 Agent Name</span></div>
+                            <input class="kpi-input" type="text" id="b-agent-name" placeholder="Enter agent name…" />
+                        </div>
+
+                        <div class="kpi-divider"></div>
+
+                        <!-- AHT -->
+                        <div class="kpi-field-group">
+                            <div class="kpi-field-label">
+                                <span>⏱ AHT (Average Handle Time)</span>
+                                <span class="kpi-field-weight">15% weight</span>
+                            </div>
+                            <input class="kpi-input" type="number" id="b-aht" placeholder="e.g. 1775" min="0" step="1" oninput="bonusLiveCalc()" />
+                            <div class="kpi-input-hint">Enter total seconds  ·  ≤1500s = 110% · 1501-1600 = 100% · 1601-1700 = 90% · … · 2001+ = 0%</div>
+                        </div>
+
+                        <!-- CSAT -->
+                        <div class="kpi-field-group">
+                            <div class="kpi-field-label">
+                                <span>⭐ CSAT Score</span>
+                                <span class="kpi-field-weight">30% weight</span>
+                            </div>
+                            <input class="kpi-input" type="number" id="b-csat" placeholder="e.g. 4.97" min="1" max="5" step="0.01" oninput="bonusLiveCalc()" />
+                            <div class="kpi-input-hint">1.00 – 5.00  ·  4.98-5.00 = 110% · 4.95-4.97 = 100% · … · ≤4.83 = 0%</div>
+                        </div>
+
+                        <!-- STR -->
+                        <div class="kpi-field-group">
+                            <div class="kpi-field-label">
+                                <span>📈 Survey Take Rate %</span>
+                                <span class="kpi-field-weight">15% weight</span>
+                            </div>
+                            <input class="kpi-input" type="number" id="b-str" placeholder="e.g. 61.1" min="0" max="100" step="0.1" oninput="bonusLiveCalc()" />
+                            <div class="kpi-input-hint">60%+ = 110% · 50-59% = 100% · 46-49% = 80% · ≤45% = 0%</div>
+                        </div>
+
+                        <!-- QA Score -->
+                        <div class="kpi-field-group">
+                            <div class="kpi-field-label">
+                                <span>🎯 QA Score %</span>
+                                <span class="kpi-field-weight">30% weight</span>
+                            </div>
+                            <input class="kpi-input" type="number" id="b-qa" placeholder="e.g. 100" min="0" max="110" step="0.1" oninput="bonusLiveCalc()" />
+                            <div class="kpi-input-hint">98%+ = 110% · 90-97% = 100% · 80-89% = 80% · ≤79% = 0%</div>
+                        </div>
+
+                        <div class="kpi-divider"></div>
+
+                        <!-- Attendance -->
+                        <div class="kpi-field-label" style="margin-bottom:8px;"><span>📅 Attendance</span></div>
+                        <div class="kpi-attendance-row">
+                            <div class="kpi-field-group">
+                                <div class="kpi-field-label">
+                                    <span>🚫 Absences</span>
+                                    <span class="kpi-field-weight">5% weight</span>
+                                </div>
+                                <input class="kpi-input" type="number" id="b-absences" placeholder="0" min="0" step="1" oninput="bonusLiveCalc()" />
+                                <div class="kpi-input-hint">0=100% · 1=75% · 2=50% · 3+=0%</div>
+                            </div>
+                            <div class="kpi-field-group">
+                                <div class="kpi-field-label">
+                                    <span>⏰ Late / UT</span>
+                                    <span class="kpi-field-weight">5% weight</span>
+                                </div>
+                                <input class="kpi-input" type="number" id="b-late" placeholder="0" min="0" step="1" oninput="bonusLiveCalc()" />
+                                <div class="kpi-input-hint">0=100% · 1=75% · 2=50% · 3+=0%</div>
+                            </div>
+                        </div>
+
+                        <!-- Buttons -->
+                        <div class="kpi-btn-row">
+                            <button class="kpi-calc-btn" onclick="bonusCalculate()">⚡ Calculate Bonus</button>
+                            <button class="kpi-reset-btn" onclick="bonusReset()">↺ Reset</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- RIGHT: Results Panel -->
+                <div class="kpi-results-panel">
+
+                    <!-- Bonus Result Card -->
+                    <div class="bonus-result-card bonus-card-idle" id="bonus-result-card">
+                        <div class="bonus-card-label">KPI Bonus Result</div>
+                        <div class="bonus-card-agent" id="bonus-card-agent">—</div>
+                        <div style="font-size:10px;color:var(--text-muted);text-transform:uppercase;letter-spacing:0.1em;margin-bottom:6px;">Total KPI Score</div>
+                        <div class="bonus-kpi-score idle" id="bonus-kpi-display">—</div>
+                        <div class="bonus-amount-label">Monthly Bonus</div>
+                        <div class="bonus-amount-value" id="bonus-amount-display" style="color:var(--text-muted);">₱ —</div>
+                        <div><span class="bonus-tier-badge bonus-tier-idle" id="bonus-tier-badge">Awaiting Input</span></div>
+                    </div>
+
+                    <!-- KPI Breakdown Table -->
+                    <div class="breakdown-card">
+                        <div class="breakdown-header">📊 Score Breakdown</div>
+                        <div class="table-wrap">
+                            <table class="breakdown-table">
+                                <thead>
+                                    <tr>
+                                        <th>KPI</th>
+                                        <th>Input</th>
+                                        <th>Score</th>
+                                        <th>Weight</th>
+                                        <th>Contribution</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="bonus-breakdown-tbody">
+                                    <!-- Rows rendered by JS -->
+                                    <tr><td colspan="5" style="padding:24px;color:var(--text-muted);text-align:center;font-style:italic;font-size:12px;">Enter data and click Calculate to see breakdown</td></tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <!-- Bonus Tier Reference -->
+                    <div class="glass-card">
+                        <div class="glass-card-header"><span class="glass-card-title">🏆 Bonus Tiers</span></div>
+                        <div class="glass-card-body">
+                            <div class="bonus-tiers-list" id="bonus-tiers-list">
+                                <!-- Rendered by JS -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Scoring Reference Tables -->
+            <div class="glass-card" style="margin-top:16px;">
+                <div class="glass-card-header"><span class="glass-card-title">📚 Scoring Reference Tables</span></div>
                 <div class="glass-card-body">
-                  <div style="display:flex;gap:14px;flex-wrap:wrap;align-items:flex-end;">
-                    <div style="flex:1;min-width:140px;">
-                      <label style="font-size:10px;color:var(--text-muted);texttransform:uppercase;letter-spacing:0.06em;">Agent Name</label>
-                      <input type="text" id="agent-name" style="width:100%;background:var(--bg-input);border:1px solid var(--border-subtle);color:var(--text-primary);font-family:var(--font-sans);font-size:13px;font-weight:600;padding:7px 10px;border-radius:8px;outline:none;" placeholder="Agent Name" oninput="saveToLocalStorage()" />
+                    <div class="ref-grid">
+                        <!-- AHT Reference -->
+                        <div class="ref-card">
+                            <div class="ref-card-header">⏱ AHT (seconds)</div>
+                            <div class="ref-card-body">
+                                <div class="ref-row"><span class="ref-range">≤ 1500</span><span class="ref-score s110">110%</span></div>
+                                <div class="ref-row"><span class="ref-range">1501 – 1600</span><span class="ref-score s100">100%</span></div>
+                                <div class="ref-row"><span class="ref-range">1601 – 1700</span><span class="ref-score s90">90%</span></div>
+                                <div class="ref-row"><span class="ref-range">1701 – 1800</span><span class="ref-score s90" style="color:#5fa3ff">85%</span></div>
+                                <div class="ref-row"><span class="ref-range">1801 – 1900</span><span class="ref-score s80">80%</span></div>
+                                <div class="ref-row"><span class="ref-range">1901 – 1950</span><span class="ref-score s75">75%</span></div>
+                                <div class="ref-row"><span class="ref-range">1951 – 2000</span><span class="ref-score s40">40%</span></div>
+                                <div class="ref-row"><span class="ref-range">2001+</span><span class="ref-score s0">0%</span></div>
+                            </div>
+                        </div>
+                        <!-- CSAT Reference -->
+                        <div class="ref-card">
+                            <div class="ref-card-header">⭐ CSAT Score</div>
+                            <div class="ref-card-body">
+                                <div class="ref-row"><span class="ref-range">4.98 – 5.00</span><span class="ref-score s110">110%</span></div>
+                                <div class="ref-row"><span class="ref-range">4.95 – 4.97</span><span class="ref-score s100">100%</span></div>
+                                <div class="ref-row"><span class="ref-range">4.91 – 4.94</span><span class="ref-score s80">80%</span></div>
+                                <div class="ref-row"><span class="ref-range">4.87 – 4.90</span><span class="ref-score s75">70%</span></div>
+                                <div class="ref-row"><span class="ref-range">4.84 – 4.86</span><span class="ref-score s50">50%</span></div>
+                                <div class="ref-row"><span class="ref-range">≤ 4.83</span><span class="ref-score s0">0%</span></div>
+                            </div>
+                        </div>
+                        <!-- STR Reference -->
+                        <div class="ref-card">
+                            <div class="ref-card-header">📈 Survey Take Rate</div>
+                            <div class="ref-card-body">
+                                <div class="ref-row"><span class="ref-range">60% +</span><span class="ref-score s110">110%</span></div>
+                                <div class="ref-row"><span class="ref-range">50% – 59%</span><span class="ref-score s100">100%</span></div>
+                                <div class="ref-row"><span class="ref-range">46% – 49%</span><span class="ref-score s80">80%</span></div>
+                                <div class="ref-row"><span class="ref-range">≤ 45%</span><span class="ref-score s0">0%</span></div>
+                            </div>
+                        </div>
+                        <!-- QA Reference -->
+                        <div class="ref-card">
+                            <div class="ref-card-header">🎯 QA Score</div>
+                            <div class="ref-card-body">
+                                <div class="ref-row"><span class="ref-range">98% +</span><span class="ref-score s110">110%</span></div>
+                                <div class="ref-row"><span class="ref-range">90% – 97%</span><span class="ref-score s100">100%</span></div>
+                                <div class="ref-row"><span class="ref-range">80% – 89%</span><span class="ref-score s80">80%</span></div>
+                                <div class="ref-row"><span class="ref-range">≤ 79%</span><span class="ref-score s0">0%</span></div>
+                            </div>
+                        </div>
+                        <!-- Absence Reference -->
+                        <div class="ref-card">
+                            <div class="ref-card-header">🚫 Absences</div>
+                            <div class="ref-card-body">
+                                <div class="ref-row"><span class="ref-range">0 absences</span><span class="ref-score s100">100%</span></div>
+                                <div class="ref-row"><span class="ref-range">1 absence</span><span class="ref-score s75">75%</span></div>
+                                <div class="ref-row"><span class="ref-range">2 absences</span><span class="ref-score s50">50%</span></div>
+                                <div class="ref-row"><span class="ref-range">3+ absences</span><span class="ref-score s0">0%</span></div>
+                            </div>
+                        </div>
+                        <!-- Late Reference -->
+                        <div class="ref-card">
+                            <div class="ref-card-header">⏰ Late / Undertime</div>
+                            <div class="ref-card-body">
+                                <div class="ref-row"><span class="ref-range">0 incidents</span><span class="ref-score s100">100%</span></div>
+                                <div class="ref-row"><span class="ref-range">1 incident</span><span class="ref-score s75">75%</span></div>
+                                <div class="ref-row"><span class="ref-range">2 incidents</span><span class="ref-score s50">50%</span></div>
+                                <div class="ref-row"><span class="ref-range">3+ incidents</span><span class="ref-score s0">0%</span></div>
+                            </div>
+                        </div>
                     </div>
-                    <div style="text-align:center;min-width:70px;"><div style="font-size:9px;color:var(--text-muted);">Total Calls</div><div style="font-size:20px;font-weight:800;">${month.tCalls}</div></div>
-                    <div style="text-align:center;min-width:70px;"><div style="font-size:9px;color:var(--text-muted);">AHT (secs)</div><input type="number" id="aht-secs-input" style="width:80px;background:var(--bg-input);border:1px solid var(--border-subtle);color:var(--text-primary);font-family:var(--font-mono);font-size:14px;font-weight:700;padding:5px;border-radius:8px;text-align:center;outline:none;" placeholder="0" min="0" oninput="updateAHT()" /></div>
-                    <div style="text-align:center;min-width:50px;"><div style="font-size:9px;color:var(--text-muted);">AHT</div><div style="font-size:16px;font-weight:700;" id="sum-aht-mins">0:00</div></div>
-                    <div style="text-align:center;min-width:50px;"><div style="font-size:9px;color:var(--text-muted);">K</div><div style="font-size:16px;font-weight:700;">${month.fK.toFixed(2)}</div></div>
-                    <div style="text-align:center;min-width:50px;"><div style="font-size:9px;color:var(--text-muted);">C</div><div style="font-size:16px;font-weight:700;">${month.fC.toFixed(2)}</div></div>
-                    <div style="text-align:center;min-width:50px;"><div style="font-size:9px;color:var(--accent-gold);">Blended</div><div style="font-size:18px;font-weight:800;color:var(--accent-gold);">${month.blended.toFixed(2)}</div></div>
-                    <div style="text-align:center;min-width:50px;"><div style="font-size:9px;color:var(--text-muted);">STR</div><div style="font-size:16px;font-weight:700;">${month.str.toFixed(1)}%</div></div>
-                    <div style="display:flex;gap:8px;flex-wrap:wrap;">
-                      <div style="text-align:center;"><div style="font-size:9px;color:var(--text-muted);">Hold%</div><input type="number" id="hold-pct" style="width:55px;background:var(--bg-input);border:1px solid var(--border-subtle);color:var(--text-primary);font-family:var(--font-mono);font-size:12px;padding:4px;border-radius:6px;text-align:center;outline:none;" placeholder="0" min="0" max="100" oninput="saveToLocalStorage()" /></div>
-                      <div style="text-align:center;"><div style="font-size:9px;color:var(--text-muted);">Trans%</div><input type="number" id="transfer-pct" style="width:55px;background:var(--bg-input);border:1px solid var(--border-subtle);color:var(--text-primary);font-family:var(--font-mono);font-size:12px;padding:4px;border-radius:6px;text-align:center;outline:none;" placeholder="0" min="0" max="100" oninput="saveToLocalStorage()" /></div>
-                      <div style="text-align:center;"><div style="font-size:9px;color:var(--text-muted);">TTS%</div><input type="number" id="tts-pct" style="width:55px;background:var(--bg-input);border:1px solid var(--border-subtle);color:var(--text-primary);font-family:var(--font-mono);font-size:12px;padding:4px;border-radius:6px;text-align:center;outline:none;" placeholder="0" min="0" max="100" oninput="saveToLocalStorage()" /></div>
-                    </div>
-                  </div>
-                </div>`;
-                setTimeout(() => {
-                    const saved = JSON.parse(localStorage.getItem('qa_scorecard_v4') || '{}');
-                    if (saved.agentName && $('agent-name')) $('agent-name').value = saved.agentName;
-                    if (saved.ahtSecs && $('aht-secs-input')) { $('aht-secs-input').value = saved.ahtSecs; updateAHT(); }
-                }, 60);
-            }
+                </div>
+            </div>
 
-            function ahtRenderTable() {
-                const tbody = $('aht-tbody');
-                if (!tbody) return;
-                const calls = ahtWeeks[ahtCurrentWeek];
-                tbody.innerHTML = calls.length === 0 ?
-                    '<tr><td colspan="4" style="padding:24px;color:var(--text-muted);text-align:center;font-style:italic;">No entries — click "+ Add Call"</td></tr>' :
-                    calls.map((val, i) => {
-                        const secs = ahtParseTime(val);
-                        return `<tr class="animate-pop">
-                    <td><span style="font-size:10px;color:var(--text-muted);">CALL ${String(i+1).padStart(2,'0')}</span></td>
-                    <td><input class="aht-time-input${secs===null&&val.trim()!==''?' invalid':''}" id="aht-inp-${i}" type="text" value="${val}" placeholder="3:22" maxlength="8" oninput="ahtUpdateRow(${i},this.value)" onkeydown="if(event.key==='Enter')ahtAddRow()" /></td>
-                    <td><span style="color:var(--text-muted);font-size:11px;" id="aht-secs-${i}">${secs!==null?secs+'s':'–'}</span></td>
-                    <td><button class="row-del-btn" onclick="ahtDeleteRow(${i})">✕</button></td></tr>`;
-                    }).join('');
-                $('aht-badge').textContent = `${calls.length} call${calls.length!==1?'s':''}`;
-                $('aht-week-label').textContent = `Week ${ahtCurrentWeek+1}`;
-            }
+        </div><!-- end tab-bonus -->
+    </div><!-- end main-content -->
+</div><!-- end app-shell -->
 
-            function buildAHTStatCards() {
-                const calls = ahtWeeks[ahtCurrentWeek];
-                const secsList = calls.map(v => ahtParseTime(v)).filter(v => v !== null);
-                const count = secsList.length;
-                const total = secsList.reduce((a, b) => a + b, 0);
-                const avg = count > 0 ? Math.round(total / count) : 0;
-                const gd = parseInt($('thresh-good')?.value) || 240;
-                const av = parseInt($('thresh-avg')?.value) || 360;
-                const perfClass = count === 0 ? 'trend-neutral' : avg <= gd ? 'trend-up' : avg <= av ? 'trend-neutral' : 'trend-down';
-                const perfLabel = count === 0 ? '—' : avg <= gd ? '✓ Good' : avg <= av ? '~ Avg' : '⚠ High';
-                const maht = calcMonthlyAHT();
-                if ($('aht-stat-cards')) $('aht-stat-cards').innerHTML = `
-                <div class="stat-card accent-blue"><div class="stat-card-icon">📞</div><div class="stat-card-label">Calls This Week</div><div class="stat-card-value">${count}</div><div class="stat-card-sub">Week ${ahtCurrentWeek+1}</div></div>
-                <div class="stat-card accent-cyan"><div class="stat-card-icon">⏱</div><div class="stat-card-label">Total Talk Time</div><div class="stat-card-value">${ahtFormatTime(total)}</div><div class="stat-card-sub">${total}s</div></div>
-                <div class="stat-card accent-purple"><div class="stat-card-icon">📊</div><div class="stat-card-label">AHT</div><div class="stat-card-value">${count>0?ahtFormatTime(avg):'–'}</div><span class="stat-card-trend ${perfClass}">${perfLabel}</span></div>
-                <div class="stat-card accent-gold"><div class="stat-card-icon">🎯</div><div class="stat-card-label">Monthly AHT Avg</div><div class="stat-card-value">${ahtFormatTime(maht.avg)}</div><div class="stat-card-sub">All weeks</div></div>`;
-            }
+<script>
+(function() {
+    // =========================================================
+    //  STATE
+    // =========================================================
+    const NUM_WEEKS = 5;
+    const NUM_AHT_WEEKS = 5;
+    let weekData = Array.from({ length: NUM_WEEKS }, () => [
+        { date: '', k: '', c: '', calls: '' },
+        { date: '', k: '', c: '', calls: '' },
+        { date: '', k: '', c: '', calls: '' },
+    ]);
+    let weekCollapsed = Array(NUM_WEEKS).fill(false);
+    let ahtWeeks = Array.from({ length: NUM_AHT_WEEKS }, () => []);
+    let ahtCurrentWeek = 0;
+    let ahtChart = null;
+    let monthlyBarChart = null;
+    let kpiTrendChart = null;
+    let currentTab = 'scorecard';
 
-            function buildAHTSummaryCard() {
-                const container = $('aht-summary-card');
-                if (!container) return;
-                const calls = ahtWeeks[ahtCurrentWeek];
-                const secsList = calls.map(v => ahtParseTime(v)).filter(v => v !== null);
-                const count = secsList.length;
-                const total = secsList.reduce((a, b) => a + b, 0);
-                const avg = count > 0 ? Math.round(total / count) : 0;
-                const gd = parseInt($('thresh-good')?.value) || 240;
-                const av = parseInt($('thresh-avg')?.value) || 360;
-                let perfClass = 'aht-perf-good', perfText = '— No Data —', resultColor = '';
-                if (count > 0) {
-                    if (avg <= gd) { perfClass = 'aht-perf-good'; perfText = '✓ GOOD'; resultColor = 'color:#22c55e;'; }
-                    else if (avg <= av) { perfClass = 'aht-perf-avg'; perfText = '~ AVERAGE'; resultColor = 'color:#f0b429;'; }
-                    else { perfClass = 'aht-perf-high'; perfText = '⚠ HIGH'; resultColor = 'color:#ef4444;'; }
-                }
-                container.innerHTML = `
-                <div class="glass-card-header"><span class="glass-card-title">📊 Summary — Week ${ahtCurrentWeek+1}</span></div>
-                <div class="glass-card-body" style="text-align:center;">
-                  <div style="font-size:10px;color:var(--text-muted);text-transform:uppercase;letter-spacing:0.08em;">Average Handle Time</div>
-                  <div class="aht-result-display" style="${resultColor}">${count>0?ahtFormatTime(avg):'–'}</div>
-                  <div style="color:var(--text-muted);font-size:11px;">${count>0?avg+' seconds':'–'}</div>
-                  <div style="margin-top:8px;"><span class="aht-perf-tag ${perfClass}">${perfText}</span></div>
-                </div>`;
-            }
+    const $ = (id) => document.getElementById(id);
+    const safeAvg = arr => { const v = arr.map(x => parseFloat(x)).filter(x => !isNaN(x) && x > 0); return v.length ? v.reduce((a,b)=>a+b,0)/v.length : 0; };
+    const safeSum = arr => arr.map(x => parseFloat(x) || 0).reduce((a,b)=>a+b,0);
 
-            function ahtRecalc() { buildAHTStatCards(); buildAHTSummaryCard(); ahtDrawChart(); }
+    // =========================================================
+    //  SCORECARD HELPERS
+    // =========================================================
+    function calcWeekStats(w) {
+        const rows = weekData[w];
+        const kVals = rows.map(r => r.k).filter(v => v !== '' && !isNaN(parseFloat(v)));
+        const cVals = rows.map(r => r.c).filter(v => v !== '' && !isNaN(parseFloat(v)));
+        const avgK = safeAvg(kVals), avgC = safeAvg(cVals);
+        const totalCalls = safeSum(rows.map(r => r.calls));
+        const kCount = kVals.length, cCount = cVals.length;
+        return { avgK, avgC, totalCalls, kCount, cCount, blended:(avgK+avgC)>0?(avgK+avgC)/2:0, kScore:avgK*kCount, cScore:avgC*cCount, str:totalCalls>0?(kCount/totalCalls)*100:0 };
+    }
+    function allWeekStats() { return Array.from({length:NUM_WEEKS},(_,w)=>calcWeekStats(w)); }
+    function calcMonthlyStats() {
+        const stats = allWeekStats();
+        const tKScore=stats.reduce((a,s)=>a+s.kScore,0), tCScore=stats.reduce((a,s)=>a+s.cScore,0);
+        const tKCount=stats.reduce((a,s)=>a+s.kCount,0), tCCount=stats.reduce((a,s)=>a+s.cCount,0);
+        const tCalls=stats.reduce((a,s)=>a+s.totalCalls,0);
+        const fK=tKCount>0?tKScore/tKCount:0, fC=tCCount>0?tCScore/tCCount:0;
+        const blended=(fK+fC)>0?(fK+fC)/2:0;
+        const str=tCalls>0?(tKCount/tCalls)*100:0;
+        let bestWeek=null,worstWeek=null,bestVal=-1,worstVal=999;
+        stats.forEach((s,i)=>{ if(s.blended>0&&s.blended>bestVal){bestVal=s.blended;bestWeek=i+1;} if(s.blended>0&&s.blended<worstVal){worstVal=s.blended;worstWeek=i+1;} });
+        return {tKScore,tCScore,tKCount,tCCount,tCalls,fK,fC,blended,str,bestWeek,worstWeek,bestVal,worstVal,weeklyStats:stats};
+    }
+    function calcMonthlyAHT() {
+        let allSecs=[];
+        ahtWeeks.forEach(calls=>calls.forEach(v=>{const s=ahtParseTime(v);if(s!==null)allSecs.push(s);}));
+        const total=allSecs.reduce((a,b)=>a+b,0),count=allSecs.length;
+        return {total,count,avg:count>0?Math.round(total/count):0,allSecs};
+    }
+    function ahtParseTime(str) {
+        if(!str||!str.trim())return null;
+        const parts=str.trim().split(':').map(Number);
+        if(parts.some(isNaN))return null;
+        if(parts.length===2)return parts[0]*60+parts[1];
+        if(parts.length===3)return parts[0]*3600+parts[1]*60+parts[2];
+        return null;
+    }
+    function ahtFormatTime(secs) {
+        if(secs===null||isNaN(secs))return '–';
+        const h=Math.floor(secs/3600),m=Math.floor((secs%3600)/60),s=secs%60;
+        if(h>0)return `${h}:${String(m).padStart(2,'0')}:${String(s).padStart(2,'0')}`;
+        return `${m}:${String(s).padStart(2,'0')}`;
+    }
 
-            function ahtDrawChart() {
-                const canvas = $('aht-trend-chart');
-                if (!canvas || canvas.offsetParent === null) return;
-                const ctx = canvas.getContext('2d');
-                const avgs = ahtWeeks.map(calls => {
-                    const secs = calls.map(v => ahtParseTime(v)).filter(v => v !== null);
-                    return secs.length ? Math.round(secs.reduce((a, b) => a + b, 0) / secs.length) : null;
-                });
-                const labels = ahtWeeks.map((_, i) => `Week ${i+1}`);
-                const good = parseInt($('thresh-good')?.value) || 240;
-                const avgT = parseInt($('thresh-avg')?.value) || 360;
-                const bgColors = avgs.map(v => v === null ? 'rgba(100,110,130,0.4)' : v <= good ? 'rgba(34,197,94,0.7)' : v <= avgT ? 'rgba(240,180,41,0.7)' : 'rgba(239,68,68,0.7)');
-                const borderColors = avgs.map(v => v === null ? '#555' : v <= good ? '#22c55e' : v <= avgT ? '#f0b429' : '#ef4444');
-                if (ahtChart) { ahtChart.destroy(); ahtChart = null; }
-                const isDark = document.documentElement.getAttribute('data-theme') !== 'light';
-                ahtChart = new Chart(ctx, {
-                    type: 'bar',
-                    data: { labels, datasets: [{ label: 'Avg AHT (seconds)', data: avgs, backgroundColor: bgColors, borderColor: borderColors, borderWidth: 2, borderRadius: 8 }] },
-                    options: {
-                        responsive: true, animation: { duration: 500 },
-                        plugins: { legend: { display: false }, tooltip: { callbacks: { label: (ctx) => { const v = ctx.raw; return v !== null ? `AHT: ${ahtFormatTime(v)} (${v}s)` : 'No data'; } } } },
-                        scales: {
-                            x: { ticks: { color: isDark ? '#9aa4bf' : '#555', font: { family: 'JetBrains Mono', size: 11 } }, grid: { color: isDark ? 'rgba(255,255,255,0.06)' : 'rgba(0,0,0,0.06)' } },
-                            y: { beginAtZero: true, ticks: { color: isDark ? '#9aa4bf' : '#555', font: { family: 'JetBrains Mono', size: 10 }, callback: v => ahtFormatTime(v) }, grid: { color: isDark ? 'rgba(255,255,255,0.06)' : 'rgba(0,0,0,0.06)' } }
-                        }
-                    }
-                });
-            }
+    // =========================================================
+    //  BONUS CALCULATOR LOGIC
+    // =========================================================
 
-            function buildMonthlyTab() { buildMonthlyStatCards(); buildMonthlyKPIBody(); buildMonthlyBreakdownTable(); drawMonthlyBarChart(); }
+    /**
+     * Scores AHT based on seconds:
+     * ≤1500 → 110, 1501-1600 → 100, 1601-1700 → 90, 1701-1800 → 85,
+     * 1801-1900 → 80, 1901-1950 → 75, 1951-2000 → 40, 2001+ → 0
+     */
+    function scoreAHT(secs) {
+        if (secs <= 1500) return 110;
+        if (secs <= 1600) return 100;
+        if (secs <= 1700) return 90;
+        if (secs <= 1800) return 85;
+        if (secs <= 1900) return 80;
+        if (secs <= 1950) return 75;
+        if (secs <= 2000) return 40;
+        return 0;
+    }
 
-            function buildMonthlyStatCards() {
-                const m = calcMonthlyStats();
-                const ahtM = calcMonthlyAHT();
-                if ($('monthly-stat-cards')) $('monthly-stat-cards').innerHTML = `
-                <div class="stat-card accent-blue"><div class="stat-card-icon">📞</div><div class="stat-card-label">Total Monthly Calls</div><div class="stat-card-value">${m.tCalls}</div></div>
-                <div class="stat-card accent-purple"><div class="stat-card-icon">⭐</div><div class="stat-card-label">Blended Score</div><div class="stat-card-value">${m.blended.toFixed(2)}</div><span class="stat-card-trend ${m.blended>=4.90?'trend-up':m.blended>=4.85?'trend-neutral':'trend-down'}">${m.blended>=4.90?'✓ Excellent':m.blended>=4.85?'~ Good':'⚠ Needs Work'}</span></div>
-                <div class="stat-card accent-cyan"><div class="stat-card-icon">⏱</div><div class="stat-card-label">Monthly AHT</div><div class="stat-card-value">${ahtFormatTime(ahtM.avg)}</div><div class="stat-card-sub">${ahtM.count} calls</div></div>
-                <div class="stat-card accent-gold"><div class="stat-card-icon">🏆</div><div class="stat-card-label">Best Week</div><div class="stat-card-value">${m.bestWeek?'Week '+m.bestWeek:'–'}</div><div class="stat-card-sub">${m.bestVal>0?m.bestVal.toFixed(2):'N/A'}</div></div>
-                <div class="stat-card accent-green"><div class="stat-card-icon">📈</div><div class="stat-card-label">STR</div><div class="stat-card-value">${m.str.toFixed(1)}%</div><span class="stat-card-trend ${m.str>=30?'trend-up':'trend-down'}">${m.str>=30?'✓ Met':'⚠ Below'}</span></div>
-                <div class="stat-card accent-pink"><div class="stat-card-icon">🔻</div><div class="stat-card-label">Lowest Week</div><div class="stat-card-value">${m.worstWeek?'Week '+m.worstWeek:'–'}</div><div class="stat-card-sub">${m.worstVal<999?m.worstVal.toFixed(2):'N/A'}</div></div>`;
-            }
+    /**
+     * Scores CSAT:
+     * 4.98-5.00 → 110, 4.95-4.97 → 100, 4.91-4.94 → 80,
+     * 4.87-4.90 → 70, 4.84-4.86 → 50, ≤4.83 → 0
+     */
+    function scoreCSAT(v) {
+        if (v >= 4.98) return 110;
+        if (v >= 4.95) return 100;
+        if (v >= 4.91) return 80;
+        if (v >= 4.87) return 70;
+        if (v >= 4.84) return 50;
+        return 0;
+    }
 
-            function buildMonthlyKPIBody() {
-                const m = calcMonthlyStats();
-                const ahtM = calcMonthlyAHT();
-                const gd = parseInt($('thresh-good')?.value) || 240;
-                const av = parseInt($('thresh-avg')?.value) || 360;
-                const blendedPct = Math.min(100, (m.blended / 4.90) * 100);
-                const strPct = Math.min(100, (m.str / 30) * 100);
-                const ahtPct = ahtM.avg > 0 ? Math.min(100, (gd / ahtM.avg) * 100) : 0;
-                if ($('monthly-kpi-body')) $('monthly-kpi-body').innerHTML = `
-                <div class="progress-wrapper"><div class="progress-label-row"><span>Blended Score vs 4.90</span><span>${m.blended.toFixed(2)}/4.90</span></div><div class="progress-bar-outer"><div class="progress-bar-inner ${m.blended>=4.90?'green':m.blended>=4.85?'gold':'red'}" style="width:${blendedPct}%"></div></div></div>
-                <div class="progress-wrapper"><div class="progress-label-row"><span>STR vs 30%</span><span>${m.str.toFixed(1)}%/30%</span></div><div class="progress-bar-outer"><div class="progress-bar-inner ${m.str>=30?'green':'purple'}" style="width:${strPct}%"></div></div></div>
-                <div class="progress-wrapper"><div class="progress-label-row"><span>AHT vs Good (${gd}s)</span><span>${ahtM.avg}s/${gd}s</span></div><div class="progress-bar-outer"><div class="progress-bar-inner ${ahtM.avg<=gd?'green':ahtM.avg<=av?'gold':'red'}" style="width:${Math.min(100,ahtPct)}%"></div></div></div>`;
-            }
+    /**
+     * Scores Survey Take Rate:
+     * ≥60 → 110, 50-59 → 100, 46-49 → 80, ≤45 → 0
+     */
+    function scoreSTR(pct) {
+        if (pct >= 60) return 110;
+        if (pct >= 50) return 100;
+        if (pct >= 46) return 80;
+        return 0;
+    }
 
-            function buildMonthlyBreakdownTable() {
-                const stats = allWeekStats();
-                const ahtAvgs = ahtWeeks.map(calls => {
-                    const secs = calls.map(v => ahtParseTime(v)).filter(v => v !== null);
-                    return secs.length ? Math.round(secs.reduce((a, b) => a + b, 0) / secs.length) : 0;
-                });
-                const m = calcMonthlyStats();
-                if ($('monthly-breakdown-table')) $('monthly-breakdown-table').innerHTML = `
-                <thead><tr><th>Week</th><th>Total Calls</th><th>Avg K</th><th>Avg C</th><th>Blended</th><th>STR</th><th>AHT (s)</th><th>Status</th></tr></thead>
-                <tbody>${stats.map((s,i)=>`<tr><td><strong>Week ${i+1}</strong></td><td>${s.totalCalls}</td><td>${s.avgK.toFixed(2)}</td><td>${s.avgC.toFixed(2)}</td><td><strong>${s.blended.toFixed(2)}</strong></td><td>${s.str.toFixed(1)}%</td><td>${ahtAvgs[i]||'–'}</td><td><span class="badge ${s.blended>=4.90?'badge-green':s.blended>=4.85?'badge-yellow':'badge-red'}">${s.blended>=4.90?'Excellent':s.blended>=4.85?'Good':'Needs Work'}</span></td></tr>`).join('')}
-                <tr class="row-gold"><td><strong>MONTHLY</strong></td><td>${m.tCalls}</td><td>${m.fK.toFixed(2)}</td><td>${m.fC.toFixed(2)}</td><td><strong>${m.blended.toFixed(2)}</strong></td><td>${m.str.toFixed(1)}%</td><td>${calcMonthlyAHT().avg||'–'}</td><td><span class="badge badge-blue">Summary</span></td></tr></tbody>`;
-            }
+    /**
+     * Scores QA:
+     * ≥98 → 110, 90-97 → 100, 80-89 → 80, ≤79 → 0
+     */
+    function scoreQA(pct) {
+        if (pct >= 98) return 110;
+        if (pct >= 90) return 100;
+        if (pct >= 80) return 80;
+        return 0;
+    }
 
-            function drawMonthlyBarChart() {
-                const canvas = $('monthly-bar-chart');
-                if (!canvas || canvas.offsetParent === null) return;
-                const ctx = canvas.getContext('2d');
-                const stats = allWeekStats();
-                const blendedData = stats.map(s => s.blended);
-                const isDark = document.documentElement.getAttribute('data-theme') !== 'light';
-                if (monthlyBarChart) monthlyBarChart.destroy();
-                monthlyBarChart = new Chart(ctx, {
-                    type: 'bar',
-                    data: {
-                        labels: stats.map((_, i) => `Week ${i+1}`),
-                        datasets: [
-                            { label: 'Blended', data: blendedData, backgroundColor: blendedData.map(v => v >= 4.90 ? 'rgba(34,197,94,0.7)' : v >= 4.85 ? 'rgba(240,180,41,0.7)' : 'rgba(239,68,68,0.7)'), borderColor: blendedData.map(v => v >= 4.90 ? '#22c55e' : v >= 4.85 ? '#f0b429' : '#ef4444'), borderWidth: 2, borderRadius: 8 },
-                            { label: 'Target (4.90)', data: Array(NUM_WEEKS).fill(4.90), type: 'line', borderColor: '#4f8fff', borderDash: [6, 4], borderWidth: 2, pointRadius: 0, fill: false }
-                        ]
-                    },
-                    options: {
-                        responsive: true,
-                        plugins: { legend: { labels: { color: isDark ? '#9aa4bf' : '#555' } } },
-                        scales: {
-                            x: { ticks: { color: isDark ? '#9aa4bf' : '#555' }, grid: { color: isDark ? 'rgba(255,255,255,0.06)' : 'rgba(0,0,0,0.06)' } },
-                            y: { min: 4.0, max: 5.0, ticks: { stepSize: 0.1, color: isDark ? '#9aa4bf' : '#555' }, grid: { color: isDark ? 'rgba(255,255,255,0.06)' : 'rgba(0,0,0,0.06)' } }
-                        }
-                    }
-                });
-            }
+    /**
+     * Scores Absence/Late incidents:
+     * 0 → 100, 1 → 75, 2 → 50, 3+ → 0
+     */
+    function scoreAttendance(incidents) {
+        if (incidents === 0) return 100;
+        if (incidents === 1) return 75;
+        if (incidents === 2) return 50;
+        return 0;
+    }
 
-            function buildKPITab() { buildKPIStatCards(); buildKPIProgressBody(); buildKPIRankingBody(); drawKPITrendChart(); }
+    /**
+     * Maps final KPI % to bonus tier:
+     * ≥109 → ₱10,000 | 105-108 → ₱7,500 | 101-104 → ₱6,500
+     * 96-100 → ₱5,000 | 90-95 → ₱3,500 | 85-89 → ₱2,500
+     * 80-84 → ₱1,500 | <80 → ₱0
+     */
+    function bonusFromKPI(kpiPct) {
+        if (kpiPct >= 109) return { amount: 10000, label: '₱10,000', tier: 'OUTSTANDING', color: 'green' };
+        if (kpiPct >= 105) return { amount: 7500,  label: '₱7,500',  tier: 'EXCELLENT',  color: 'green' };
+        if (kpiPct >= 101) return { amount: 6500,  label: '₱6,500',  tier: 'VERY GOOD',  color: 'green' };
+        if (kpiPct >= 96)  return { amount: 5000,  label: '₱5,000',  tier: 'GOOD',       color: 'yellow' };
+        if (kpiPct >= 90)  return { amount: 3500,  label: '₱3,500',  tier: 'SATISFACTORY', color: 'yellow' };
+        if (kpiPct >= 85)  return { amount: 2500,  label: '₱2,500',  tier: 'BELOW TARGET', color: 'orange' };
+        if (kpiPct >= 80)  return { amount: 1500,  label: '₱1,500',  tier: 'BELOW TARGET', color: 'orange' };
+        return { amount: 0, label: '₱0', tier: 'NO BONUS', color: 'red' };
+    }
 
-            function buildKPIStatCards() {
-                const m = calcMonthlyStats();
-                const ahtM = calcMonthlyAHT();
-                const gd = parseInt($('thresh-good')?.value) || 240;
-                const met = (m.blended >= 4.85 ? 1 : 0) + (m.str >= 30 ? 1 : 0) + (ahtM.count > 0 && ahtM.avg <= gd ? 1 : 0);
-                if ($('kpi-stat-cards')) $('kpi-stat-cards').innerHTML = `
-                <div class="stat-card accent-green"><div class="stat-card-icon">✅</div><div class="stat-card-label">KPIs Met</div><div class="stat-card-value">${met}/3</div></div>
-                <div class="stat-card accent-red"><div class="stat-card-icon">⚠️</div><div class="stat-card-label">At Risk</div><div class="stat-card-value">${3-met}</div></div>
-                <div class="stat-card accent-blue"><div class="stat-card-icon">📊</div><div class="stat-card-label">Data Completeness</div><div class="stat-card-value">${m.tCalls>0?'✓':'⚠'}</div></div>`;
-            }
+    function getScorePillClass(score) {
+        if (score >= 110) return 'score-excellent';
+        if (score >= 100) return 'score-good';
+        if (score >= 80)  return 'score-average';
+        if (score >= 40)  return 'score-poor';
+        if (score > 0)    return 'score-poor';
+        return 'score-zero';
+    }
 
-            function buildKPIProgressBody() {
-                const m = calcMonthlyStats();
-                const ahtM = calcMonthlyAHT();
-                const gd = parseInt($('thresh-good')?.value) || 240;
-                const av = parseInt($('thresh-avg')?.value) || 360;
-                const items = [
-                    { label: 'Blended (min 4.85)', val: m.blended, target: 4.85, max: 5.0, cls: m.blended >= 4.85 ? 'green' : 'red' },
-                    { label: 'STR (min 30%)', val: m.str, target: 30, max: 50, cls: m.str >= 30 ? 'green' : 'purple' },
-                    { label: 'AHT (≤' + gd + 's)', val: ahtM.count > 0 ? ahtM.avg : gd + 1, target: gd, max: av + 120, cls: ahtM.count > 0 && ahtM.avg <= gd ? 'green' : ahtM.avg <= av ? 'gold' : 'red', invert: true },
-                ];
-                if ($('kpi-progress-body')) $('kpi-progress-body').innerHTML = items.map(item => {
-                    const pct = item.invert ? Math.max(0, Math.min(100, ((item.max - item.val) / (item.max - item.target)) * 100)) : Math.min(100, (item.val / item.target) * 100);
-                    return `<div class="progress-wrapper"><div class="progress-label-row"><span>${item.label}</span><span>${item.val.toFixed(1)} / ${item.target}</span></div><div class="progress-bar-outer"><div class="progress-bar-inner ${item.cls}" style="width:${pct}%"></div></div></div>`;
-                }).join('');
-            }
+    /* Render bonus tier list, highlighting the active tier */
+    function renderBonusTiers(activeTier) {
+        const container = $('bonus-tiers-list');
+        if (!container) return;
+        const tiers = [
+            { range: '109% +',       label: '₱10,000', cls: 'tier-top',  amtCls: 'c-green',  minPct: 109 },
+            { range: '105% – 108%',  label: '₱7,500',  cls: 'tier-top',  amtCls: 'c-green',  minPct: 105 },
+            { range: '101% – 104%',  label: '₱6,500',  cls: 'tier-high', amtCls: 'c-green',  minPct: 101 },
+            { range: '96% – 100%',   label: '₱5,000',  cls: 'tier-mid',  amtCls: 'c-yellow', minPct: 96  },
+            { range: '90% – 95%',    label: '₱3,500',  cls: 'tier-mid',  amtCls: 'c-yellow', minPct: 90  },
+            { range: '85% – 89%',    label: '₱2,500',  cls: 'tier-low',  amtCls: 'c-orange', minPct: 85  },
+            { range: '80% – 84%',    label: '₱1,500',  cls: 'tier-low',  amtCls: 'c-orange', minPct: 80  },
+            { range: '< 80%',        label: '₱0',      cls: 'tier-zero', amtCls: 'c-red',    minPct: 0   },
+        ];
+        container.innerHTML = tiers.map(t => {
+            const isActive = activeTier !== null && (activeTier >= t.minPct) && (
+                t.minPct === 109 ? activeTier >= 109 :
+                t.minPct === 105 ? (activeTier >= 105 && activeTier < 109) :
+                t.minPct === 101 ? (activeTier >= 101 && activeTier < 105) :
+                t.minPct === 96  ? (activeTier >= 96  && activeTier < 101) :
+                t.minPct === 90  ? (activeTier >= 90  && activeTier < 96)  :
+                t.minPct === 85  ? (activeTier >= 85  && activeTier < 90)  :
+                t.minPct === 80  ? (activeTier >= 80  && activeTier < 85)  :
+                activeTier < 80
+            );
+            return `<div class="bonus-tier-row ${t.cls}${isActive?' active':''}" style="${isActive?'box-shadow:0 0 16px rgba(34,197,94,0.2);transform:scale(1.02);':''}">
+                <span class="tier-indicator ${isActive?'lit':''}"></span>
+                <span class="tier-range">${t.range}</span>
+                <span class="tier-amount ${t.amtCls}">${t.label}</span>
+            </div>`;
+        }).join('');
+    }
 
-            function buildKPIRankingBody() {
-                const stats = allWeekStats();
-                const ranked = stats.map((s, i) => ({ week: i + 1, blended: s.blended })).filter(r => r.blended > 0).sort((a, b) => b.blended - a.blended);
-                if ($('kpi-ranking-body')) $('kpi-ranking-body').innerHTML = ranked.length === 0 ?
-                    '<p style="color:var(--text-muted);text-align:center;">No data</p>' :
-                    ranked.map((r, i) => `
-                    <div style="display:flex;align-items:center;gap:10px;padding:8px 0;border-bottom:1px solid var(--border-subtle);">
-                      <span style="font-size:18px;font-weight:900;width:28px;text-align:center;color:${i===0?'#f0b429':i===1?'#9aa4bf':i===2?'#cd7f32':'var(--text-muted)'}">#${i+1}</span>
-                      <span style="flex:1;font-weight:600;">Week ${r.week}</span>
-                      <span style="font-family:var(--font-mono);font-weight:700;">${r.blended.toFixed(2)}</span>
-                    </div>`).join('');
-            }
+    /* Live calculation on input change (lightweight) */
+    window.bonusLiveCalc = function() {
+        const aht      = parseFloat($('b-aht')?.value);
+        const csat     = parseFloat($('b-csat')?.value);
+        const str      = parseFloat($('b-str')?.value);
+        const qa       = parseFloat($('b-qa')?.value);
+        const absences = parseInt($('b-absences')?.value ?? '0');
+        const late     = parseInt($('b-late')?.value ?? '0');
 
-            function drawKPITrendChart() {
-                const canvas = $('kpi-trend-chart');
-                if (!canvas || canvas.offsetParent === null) return;
-                const ctx = canvas.getContext('2d');
-                const stats = allWeekStats();
-                const isDark = document.documentElement.getAttribute('data-theme') !== 'light';
-                if (kpiTrendChart) kpiTrendChart.destroy();
-                kpiTrendChart = new Chart(ctx, {
-                    type: 'line',
-                    data: {
-                        labels: stats.map((_, i) => `Week ${i+1}`),
-                        datasets: [
-                            { label: 'Blended', data: stats.map(s => s.blended), borderColor: '#8b5cf6', backgroundColor: 'rgba(139,92,246,0.1)', borderWidth: 3, tension: 0.4, pointRadius: 5, fill: true },
-                            { label: 'STR %', data: stats.map(s => s.str), borderColor: '#f0b429', backgroundColor: 'rgba(240,180,41,0.05)', borderWidth: 3, tension: 0.4, pointRadius: 5, fill: true, yAxisID: 'y1' }
-                        ]
-                    },
-                    options: {
-                        responsive: true,
-                        plugins: { legend: { labels: { color: isDark ? '#9aa4bf' : '#555' } } },
-                        scales: {
-                            x: { ticks: { color: isDark ? '#9aa4bf' : '#555' }, grid: { color: isDark ? 'rgba(255,255,255,0.06)' : 'rgba(0,0,0,0.06)' } },
-                            y: { position: 'left', min: 4.0, max: 5.0, ticks: { color: '#8b5cf6', stepSize: 0.1 }, grid: { color: isDark ? 'rgba(255,255,255,0.06)' : 'rgba(0,0,0,0.06)' } },
-                            y1: { position: 'right', min: 0, max: 60, ticks: { color: '#f0b429', stepSize: 10 }, grid: { drawOnChartArea: false } }
-                        }
-                    }
-                });
-            }
+        // If at least one field filled, try a quick preview
+        const allFilled = !isNaN(aht) && !isNaN(csat) && !isNaN(str) && !isNaN(qa);
+        if (!allFilled) return;
 
-            function updateAHT() {
-                const s = parseInt($('aht-secs-input')?.value) || 0;
-                if ($('sum-aht-mins')) $('sum-aht-mins').textContent = `${Math.floor(s/60)}:${String(s%60).padStart(2,'0')}`;
-                saveToLocalStorage();
-            }
+        const aScore  = scoreAHT(aht);
+        const cScore  = scoreCSAT(csat);
+        const sScore  = scoreSTR(str);
+        const qScore  = scoreQA(qa);
+        const abScore = scoreAttendance(isNaN(absences) ? 0 : absences);
+        const ltScore = scoreAttendance(isNaN(late) ? 0 : late);
 
-            function refreshAll() {
-                buildStatCards(); buildKPISidebar(); buildSummaryCard();
-                for (let w = 0; w < NUM_WEEKS; w++) rebuildWeekRows(w);
-                if (currentTab === 'aht') ahtRecalc();
-                if (currentTab === 'monthly') buildMonthlyTab();
-                if (currentTab === 'kpi') buildKPITab();
-                saveToLocalStorage();
-            }
+        // KPI Score = weighted sum (formula per requirements)
+        const kpiScore = (aScore*0.15) + (cScore*0.30) + (sScore*0.15) + (qScore*0.30) + (abScore*0.05) + (ltScore*0.05);
+        renderBonusTiers(kpiScore);
+    };
 
-            window.addRow = function(w) { weekData[w].push({ date: '', k: '', c: '', calls: '' }); rebuildWeekRows(w); refreshAll(); };
-            window.deleteRow = function(w, r) { weekData[w].splice(r, 1); if (weekData[w].length === 0) weekData[w] = [{ date: '', k: '', c: '', calls: '' }]; rebuildWeekRows(w); refreshAll(); };
-            window.setVal = function(w, r, field, val) { weekData[w][r][field] = val; refreshAll(); };
-            window.toggleWeekCollapse = function(w) { weekCollapsed[w] = !weekCollapsed[w]; const content = $(`week-content-${w}`); if (content) { if (weekCollapsed[w]) content.classList.add('collapsed'); else content.classList.remove('collapsed'); } const icon = $(`week-icon-${w}`); if (icon) icon.textContent = weekCollapsed[w] ? '▸' : '▾'; saveToLocalStorage(); };
+    /* Full calculation with UI update */
+    window.bonusCalculate = function() {
+        const ahtVal  = $('b-aht')?.value.trim();
+        const csatVal = $('b-csat')?.value.trim();
+        const strVal  = $('b-str')?.value.trim();
+        const qaVal   = $('b-qa')?.value.trim();
 
-            window.ahtAddRow = function() { ahtWeeks[ahtCurrentWeek].push(''); saveToLocalStorage(); ahtRenderTable(); ahtRecalc(); setTimeout(() => { const inputs = document.querySelectorAll('.aht-time-input'); if (inputs.length) inputs[inputs.length - 1].focus(); }, 50); };
-            window.ahtDeleteRow = function(idx) { ahtWeeks[ahtCurrentWeek].splice(idx, 1); saveToLocalStorage(); ahtRenderTable(); ahtRecalc(); };
-            window.ahtUpdateRow = function(idx, val) { ahtWeeks[ahtCurrentWeek][idx] = val; const secs = ahtParseTime(val); const secsEl = $(`aht-secs-${idx}`), input = $(`aht-inp-${idx}`); if (secsEl) secsEl.textContent = secs !== null ? secs + 's' : '–'; if (input) input.classList.toggle('invalid', secs === null && val.trim() !== ''); saveToLocalStorage(); ahtRecalc(); };
-            window.ahtSwitchWeek = function() { ahtCurrentWeek = parseInt($('aht-week-select').value); $('aht-week-label').textContent = `Week ${ahtCurrentWeek+1}`; ahtRenderTable(); ahtRecalc(); };
-            window.ahtResetWeek = function() { if (!confirm(`Reset Week ${ahtCurrentWeek+1}?`)) return; ahtWeeks[ahtCurrentWeek] = []; saveToLocalStorage(); ahtRenderTable(); ahtRecalc(); };
-            window.ahtExportCSV = function() { const calls = ahtWeeks[ahtCurrentWeek]; let csv = `Call,Talk Time,Seconds\n`; calls.forEach((v, i) => { const s = ahtParseTime(v); csv += `${i+1},${v},${s!==null?s:'–'}\n`; }); const secsList = calls.map(v => ahtParseTime(v)).filter(v => v !== null); const total = secsList.reduce((a, b) => a + b, 0); const avg = secsList.length ? Math.round(total / secsList.length) : 0; csv += `\nTotal,${secsList.length}\nAHT,${ahtFormatTime(avg)} (${avg}s)\n`; dlCSV(csv, `aht_week${ahtCurrentWeek+1}.csv`); };
+        if (!ahtVal || !csatVal || !strVal || !qaVal) {
+            showToast('⚠️ Please fill in AHT, CSAT, STR, and QA fields', 'error');
+            return;
+        }
 
-            function dlCSV(csv, fname) { const blob = new Blob([csv], { type: 'text/csv' }); const a = document.createElement('a'); a.href = URL.createObjectURL(blob); a.download = fname; a.click(); URL.revokeObjectURL(a.href); }
+        const aht      = parseFloat(ahtVal);
+        const csat     = parseFloat(csatVal);
+        const str      = parseFloat(strVal);
+        const qa       = parseFloat(qaVal);
+        const absences = parseInt($('b-absences')?.value || '0');
+        const late     = parseInt($('b-late')?.value || '0');
+        const agentName = $('b-agent-name')?.value.trim() || 'Agent';
 
-            window.exportCSV = function() { let csv = 'Week,Date,Survey K,Survey C,Calls\n'; weekData.forEach((rows, w) => rows.forEach(r => csv += `Week ${w+1},${r.date},${r.k},${r.c},${r.calls}\n`)); csv += '\nSummary\n'; csv += `Agent,${$('agent-name')?.value||''}\nAHT Secs,${$('aht-secs-input')?.value||''}\n`; csv += `Hold %,${$('hold-pct')?.value||''}\nTransfer %,${$('transfer-pct')?.value||''}\nTTS %,${$('tts-pct')?.value||''}\n`; csv += '\nAHT Calculator\n'; ahtWeeks.forEach((calls, w) => calls.forEach((c, i) => csv += `Week ${w+1},Call ${i+1},${c}\n`)); dlCSV(csv, 'qa_dashboard_full.csv'); showToast('📤 CSV exported', 'success'); };
-            window.resetAll = function() { if (!confirm('Reset ALL data?')) return; weekData = Array.from({ length: NUM_WEEKS }, () => [{ date: '', k: '', c: '', calls: '' }, { date: '', k: '', c: '', calls: '' }, { date: '', k: '', c: '', calls: '' }]); ahtWeeks = Array.from({ length: NUM_AHT_WEEKS }, () => []); weekCollapsed = Array(NUM_WEEKS).fill(false); ['agent-name', 'aht-secs-input', 'hold-pct', 'transfer-pct', 'tts-pct'].forEach(id => { if ($(id)) $(id).value = ''; }); if ($('sum-aht-mins')) $('sum-aht-mins').textContent = '0:00'; localStorage.removeItem('qa_scorecard_v4'); ahtCurrentWeek = 0; if ($('aht-week-select')) $('aht-week-select').value = '0'; buildWeekTables(); ahtRenderTable(); refreshAll(); showToast('🔄 All data reset', 'info'); };
+        // ---- Score each KPI ----
+        const aScore  = scoreAHT(aht);      // AHT score (%)
+        const cScore  = scoreCSAT(csat);    // CSAT score (%)
+        const sScore  = scoreSTR(str);      // STR score (%)
+        const qScore  = scoreQA(qa);        // QA score (%)
+        const abScore = scoreAttendance(absences); // Absence score (%)
+        const ltScore = scoreAttendance(late);     // Late score (%)
 
-            function switchTab(name) {
-                currentTab = name;
-                document.querySelectorAll('.tab-page').forEach(p => p.classList.remove('active'));
-                document.querySelectorAll('.nav-tab').forEach(b => b.classList.remove('active'));
-                const page = $(`tab-${name}`); const btn = document.querySelector(`[data-tab="${name}"]`);
-                if (page) page.classList.add('active');
-                if (btn) btn.classList.add('active');
-                localStorage.setItem('qa_active_tab', name);
-                setTimeout(() => {
-                    if (name === 'aht') { ahtRecalc(); ahtDrawChart(); }
-                    if (name === 'monthly') { buildMonthlyTab(); drawMonthlyBarChart(); }
-                    if (name === 'kpi') { buildKPITab(); drawKPITrendChart(); }
-                }, 150);
-            }
+        // ---- Weighted KPI Score ----
+        // Formula: (AHT×15%) + (CSAT×30%) + (STR×15%) + (QA×30%) + (Absence×5%) + (Late×5%)
+        const kpiScore = parseFloat(
+            ((aScore*0.15) + (cScore*0.30) + (sScore*0.15) + (qScore*0.30) + (abScore*0.05) + (ltScore*0.05)).toFixed(2)
+        );
 
-            function showToast(msg, type = 'info') { const container = $('toast-container'); const toast = document.createElement('div'); toast.className = `toast toast-${type}`; toast.textContent = msg; container.appendChild(toast); setTimeout(() => toast.remove(), 3400); }
+        // ---- Bonus determination ----
+        const bonus = bonusFromKPI(kpiScore);
 
-            window.triggerImportCSV = function() { $('importCsvInput').click(); };
-            window.handleCSVImport = function(event) {
-                const file = event.target.files[0]; if (!file) return;
-                if (!file.name.toLowerCase().endsWith('.csv')) { showToast('Invalid file', 'error'); event.target.value = ''; return; }
-                const reader = new FileReader();
-                reader.onload = function(e) { try { const count = parseAndRestoreCSV(e.target.result); showToast(`✅ ${count} records imported`, 'success'); buildWeekTables(); ahtRenderTable(); refreshAll(); } catch (err) { showToast('❌ Parse error', 'error'); } };
-                reader.onerror = () => showToast('❌ Read error', 'error');
-                reader.readAsText(file, 'UTF-8');
-                event.target.value = '';
-            };
+        // ---- Update result card ----
+        const card = $('bonus-result-card');
+        if (card) {
+            card.className = `bonus-result-card bonus-card-${bonus.color === 'green' ? 'green' : bonus.color === 'yellow' ? 'yellow' : bonus.color === 'orange' ? 'orange' : 'red'}`;
+        }
+        if ($('bonus-card-agent'))   $('bonus-card-agent').textContent   = agentName;
+        if ($('bonus-kpi-display'))  { $('bonus-kpi-display').textContent = kpiScore.toFixed(2) + '%'; $('bonus-kpi-display').className = `bonus-kpi-score ${bonus.color}`; }
+        if ($('bonus-amount-display')) { $('bonus-amount-display').textContent = bonus.label; $('bonus-amount-display').style.color = bonus.color === 'green' ? '#22c55e' : bonus.color === 'yellow' ? '#f0b429' : bonus.color === 'orange' ? '#f97316' : '#ef4444'; }
+        const tierBadge = $('bonus-tier-badge');
+        if (tierBadge) { tierBadge.textContent = bonus.tier; tierBadge.className = `bonus-tier-badge bonus-tier-${bonus.color === 'green' ? 'green' : bonus.color === 'yellow' ? 'yellow' : bonus.color === 'orange' ? 'orange' : 'red'}`; }
 
-            function parseAndRestoreCSV(csvText) {
-                const lines = csvText.split(/\r?\n/).map(l => l.trim()).filter(l => l);
-                if (!lines.length) throw new Error('Empty');
-                const newWeekData = Array.from({ length: NUM_WEEKS }, () => []);
-                const newAhtWeeks = Array.from({ length: NUM_AHT_WEEKS }, () => []);
-                let section = 'scorecard', skipped = false, total = 0; const summary = {};
-                for (const line of lines) {
-                    if (line.toLowerCase() === 'summary') { section = 'summary'; continue; }
-                    if (line.toLowerCase().startsWith('aht calculator')) { section = 'aht'; continue; }
-                    if (section === 'scorecard') {
-                        if (!skipped && line.startsWith('Week,') && line.includes('Survey K')) { skipped = true; continue; }
-                        const p = parseCSVLine(line);
-                        if (p.length >= 5 && p[0].toLowerCase().startsWith('week')) { const m = p[0].match(/week\s*(\d+)/i); if (m && +m[1] >= 1 && +m[1] <= NUM_WEEKS) { newWeekData[+m[1] - 1].push({ date: p[1] || '', k: p[2] || '', c: p[3] || '', calls: p[4] || '' }); total++; } }
-                    } else if (section === 'summary') { const p = parseCSVLine(line); if (p.length >= 2) summary[p[0].trim().toLowerCase()] = p[1].trim(); }
-                    else if (section === 'aht') { const p = parseCSVLine(line); if (p.length >= 3 && p[0].toLowerCase().startsWith('week')) { const m = p[0].match(/week\s*(\d+)/i); if (m && +m[1] >= 1 && +m[1] <= NUM_AHT_WEEKS) { newAhtWeeks[+m[1] - 1].push(p[2] || ''); total++; } } }
-                }
-                for (let w = 0; w < NUM_WEEKS; w++) if (!newWeekData[w].length) newWeekData[w] = [{ date: '', k: '', c: '', calls: '' }];
-                weekData = newWeekData; ahtWeeks = newAhtWeeks;
-                setTimeout(() => { if (summary['agent'] && $('agent-name')) $('agent-name').value = summary['agent']; if (summary['aht secs'] && $('aht-secs-input')) { $('aht-secs-input').value = summary['aht secs']; updateAHT(); } if (summary['hold %'] && $('hold-pct')) $('hold-pct').value = summary['hold %']; if (summary['transfer %'] && $('transfer-pct')) $('transfer-pct').value = summary['transfer %']; if (summary['tts %'] && $('tts-pct')) $('tts-pct').value = summary['tts %']; saveToLocalStorage(); }, 100);
-                return total;
-            }
+        // ---- Breakdown table ----
+        const rows = [
+            { name: 'AHT', icon: '⏱', color: '#4f8fff',  input: aht + 's',       score: aScore,  weight: 15, contrib: aScore  * 0.15 },
+            { name: 'CSAT', icon: '⭐', color: '#8b5cf6', input: csat.toFixed(2),  score: cScore,  weight: 30, contrib: cScore  * 0.30 },
+            { name: 'STR',  icon: '📈', color: '#06b6d4', input: str + '%',        score: sScore,  weight: 15, contrib: sScore  * 0.15 },
+            { name: 'QA',   icon: '🎯', color: '#22c55e', input: qa + '%',         score: qScore,  weight: 30, contrib: qScore  * 0.30 },
+            { name: 'Absence', icon: '🚫', color: '#f0b429', input: absences + (absences===1?' day':' days'), score: abScore, weight: 5, contrib: abScore * 0.05 },
+            { name: 'Late / UT', icon: '⏰', color: '#ec4899', input: late + (late===1?' incident':' incidents'), score: ltScore, weight: 5, contrib: ltScore * 0.05 },
+        ];
 
-            function parseCSVLine(line) { const result = []; let cur = '', inQ = false; for (const ch of line) { if (ch === '"') inQ = !inQ; else if (ch === ',' && !inQ) { result.push(cur.trim()); cur = ''; } else cur += ch; } result.push(cur.trim()); return result; }
+        const tbody = $('bonus-breakdown-tbody');
+        if (tbody) {
+            tbody.innerHTML = rows.map(r => `
+                <tr>
+                    <td><div class="kpi-name-cell"><span class="kpi-dot" style="background:${r.color}"></span>${r.icon} ${r.name}</div></td>
+                    <td style="font-family:var(--font-mono);font-size:11px;">${r.input}</td>
+                    <td><span class="score-pill ${getScorePillClass(r.score)}">${r.score}%</span></td>
+                    <td class="weight-cell">${r.weight}%</td>
+                    <td class="contrib-cell" style="color:${r.contrib >= 25 ? '#22c55e' : r.contrib >= 15 ? '#4f8fff' : r.contrib >= 5 ? '#f0b429' : '#ef4444'}">${r.contrib.toFixed(2)}</td>
+                </tr>
+            `).join('') + `
+                <tr class="total-row">
+                    <td colspan="4" style="text-align:right;color:var(--text-muted);font-size:11px;letter-spacing:0.06em;text-transform:uppercase;">TOTAL KPI SCORE</td>
+                    <td style="color:${bonus.color==='green'?'#22c55e':bonus.color==='yellow'?'#f0b429':bonus.color==='orange'?'#f97316':'#ef4444'};font-size:15px;">${kpiScore.toFixed(2)}%</td>
+                </tr>
+            `;
+        }
 
-            function init() {
-                loadFromLocalStorage();
-                setThemeFromStorage();
-                buildWeekTables();
-                buildStatCards();
-                buildKPISidebar();
-                buildSummaryCard();
-                ahtRenderTable();
-                ahtRecalc();
-                document.querySelectorAll('.nav-tab').forEach(btn => btn.addEventListener('click', () => switchTab(btn.dataset.tab)));
-                const savedTab = localStorage.getItem('qa_active_tab');
-                if (savedTab && $(`tab-${savedTab}`)) switchTab(savedTab);
-                ['agent-name', 'aht-secs-input', 'hold-pct', 'transfer-pct', 'tts-pct', 'thresh-good', 'thresh-avg'].forEach(id => { const el = $(id); if (el) el.addEventListener('input', () => { if (id === 'aht-secs-input') updateAHT(); saveToLocalStorage(); }); });
-            }
+        // Highlight active bonus tier
+        renderBonusTiers(kpiScore);
 
-            window.cycleTheme = cycleTheme;
-            window.toggleTheme = cycleTheme;
-            window.switchTab = switchTab;
-            window.saveToLocalStorage = saveToLocalStorage;
-            window.updateAHT = updateAHT;
-            window.ahtRecalc = ahtRecalc;
-            window.ahtRenderTable = ahtRenderTable;
+        showToast(`✅ KPI Score: ${kpiScore.toFixed(2)}% → ${bonus.label}`, 'success');
+    };
 
-            document.addEventListener('DOMContentLoaded', init);
-        })();
-    </script>
+    window.bonusReset = function() {
+        ['b-agent-name','b-aht','b-csat','b-str','b-qa','b-absences','b-late'].forEach(id => { if ($(id)) $(id).value = ''; });
+        const card = $('bonus-result-card');
+        if (card) card.className = 'bonus-result-card bonus-card-idle';
+        if ($('bonus-card-agent'))    $('bonus-card-agent').textContent = '—';
+        if ($('bonus-kpi-display'))   { $('bonus-kpi-display').textContent = '—'; $('bonus-kpi-display').className = 'bonus-kpi-score idle'; }
+        if ($('bonus-amount-display')){ $('bonus-amount-display').textContent = '₱ —'; $('bonus-amount-display').style.color = 'var(--text-muted)'; }
+        if ($('bonus-tier-badge'))    { $('bonus-tier-badge').textContent = 'Awaiting Input'; $('bonus-tier-badge').className = 'bonus-tier-badge bonus-tier-idle'; }
+        if ($('bonus-breakdown-tbody')) $('bonus-breakdown-tbody').innerHTML = '<tr><td colspan="5" style="padding:24px;color:var(--text-muted);text-align:center;font-style:italic;font-size:12px;">Enter data and click Calculate to see breakdown</td></tr>';
+        renderBonusTiers(null);
+    };
+
+    // =========================================================
+    //  STORAGE
+    // =========================================================
+    function saveToLocalStorage() {
+        const data = {
+            weekData, weekCollapsed, ahtWeeks,
+            agentName: $('agent-name')?.value || '',
+            ahtSecs: $('aht-secs-input')?.value || '',
+            holdPct: $('hold-pct')?.value || '',
+            transferPct: $('transfer-pct')?.value || '',
+            ttsPct: $('tts-pct')?.value || '',
+            ahtThreshGood: $('thresh-good')?.value || '240',
+            ahtThreshAvg: $('thresh-avg')?.value || '360',
+        };
+        localStorage.setItem('qa_scorecard_v4', JSON.stringify(data));
+    }
+    window.saveToLocalStorage = saveToLocalStorage;
+
+    function loadFromLocalStorage() {
+        try {
+            const theme = localStorage.getItem('qa_theme');
+            if (theme) document.documentElement.setAttribute('data-theme', theme);
+            const raw = localStorage.getItem('qa_scorecard_v4');
+            if (!raw) return;
+            const data = JSON.parse(raw);
+            if(data.weekData && Array.isArray(data.weekData)) { weekData = data.weekData; while(weekData.length < NUM_WEEKS) weekData.push([{date:'',k:'',c:'',calls:''}]); }
+            if(data.weekCollapsed) weekCollapsed = data.weekCollapsed.slice(0,NUM_WEEKS);
+            if(data.ahtWeeks && Array.isArray(data.ahtWeeks)) { ahtWeeks = data.ahtWeeks; while(ahtWeeks.length < NUM_AHT_WEEKS) ahtWeeks.push([]); }
+            if(data.ahtThreshGood) $('thresh-good').value = data.ahtThreshGood;
+            if(data.ahtThreshAvg)  $('thresh-avg').value  = data.ahtThreshAvg;
+            setTimeout(() => {
+                if(data.agentName && $('agent-name')) $('agent-name').value = data.agentName;
+                if(data.ahtSecs && $('aht-secs-input')) { $('aht-secs-input').value = data.ahtSecs; updateAHT(); }
+                if(data.holdPct && $('hold-pct')) $('hold-pct').value = data.holdPct;
+                if(data.transferPct && $('transfer-pct')) $('transfer-pct').value = data.transferPct;
+                if(data.ttsPct && $('tts-pct')) $('tts-pct').value = data.ttsPct;
+            }, 100);
+        } catch(e){ console.warn('Load error:',e); }
+    }
+
+    // =========================================================
+    //  THEME
+    // =========================================================
+    const themes = ['dark','light','barbie','apple'];
+    const themeIcons = ['🌙','☀️','🎀','🍏'];
+    let currentThemeIndex = 0;
+    function cycleTheme() {
+        currentThemeIndex = (currentThemeIndex + 1) % themes.length;
+        const theme = themes[currentThemeIndex];
+        document.documentElement.setAttribute('data-theme', theme);
+        localStorage.setItem('qa_theme', theme);
+        const btn = $('theme-btn');
+        if(btn) btn.textContent = themeIcons[currentThemeIndex];
+        setTimeout(() => { ahtDrawChart(); drawMonthlyBarChart(); drawKPITrendChart(); }, 200);
+    }
+    function setThemeFromStorage() {
+        const saved = localStorage.getItem('qa_theme') || 'dark';
+        const idx = themes.indexOf(saved);
+        currentThemeIndex = idx >= 0 ? idx : 0;
+        document.documentElement.setAttribute('data-theme', themes[currentThemeIndex]);
+        const btn = $('theme-btn');
+        if(btn) btn.textContent = themeIcons[currentThemeIndex];
+    }
+    window.cycleTheme = cycleTheme;
+
+    // =========================================================
+    //  SCORECARD UI BUILDERS
+    // =========================================================
+    function buildStatCards() {
+        const m = calcMonthlyStats();
+        const html = `
+        <div class="stat-card accent-blue"><div class="stat-card-icon">📞</div><div class="stat-card-label">Total Calls</div><div class="stat-card-value">${m.tCalls}</div><div class="stat-card-sub">All 5 weeks</div></div>
+        <div class="stat-card accent-purple"><div class="stat-card-icon">⭐</div><div class="stat-card-label">Blended Score</div><div class="stat-card-value">${m.blended.toFixed(2)}</div><div class="stat-card-sub">K:${m.fK.toFixed(2)} C:${m.fC.toFixed(2)}</div><span class="stat-card-trend ${m.blended>=4.90?'trend-up':m.blended>=4.85?'trend-neutral':'trend-down'}">${m.blended>=4.90?'✓ On Track':m.blended>=4.85?'~ Close':'⚠ Below'}</span></div>
+        <div class="stat-card accent-gold"><div class="stat-card-icon">📈</div><div class="stat-card-label">STR</div><div class="stat-card-value">${m.str.toFixed(1)}%</div><div class="stat-card-sub">Target 30%</div><span class="stat-card-trend ${m.str>=30?'trend-up':'trend-down'}">${m.str>=30?'✓ Met':'⚠ Below'}</span></div>
+        <div class="stat-card accent-cyan"><div class="stat-card-icon">🏆</div><div class="stat-card-label">Best Week</div><div class="stat-card-value">${m.bestWeek?'W'+m.bestWeek:'–'}</div><div class="stat-card-sub">${m.bestVal>0?m.bestVal.toFixed(2):'N/A'}</div></div>`;
+        if($('scorecard-stat-cards')) $('scorecard-stat-cards').innerHTML = html;
+    }
+
+    function buildWeekTables() {
+        const container = $('weeks-container');
+        if (!container) return;
+        container.innerHTML = '';
+        for (let w = 0; w < NUM_WEEKS; w++) container.appendChild(createWeekBlock(w));
+        for (let w = 0; w < NUM_WEEKS; w++) {
+            const content = $(`week-content-${w}`);
+            if (content && weekCollapsed[w]) { content.classList.add('collapsed'); content.style.transition='none'; setTimeout(()=>{content.style.transition='';},50); }
+        }
+    }
+
+    function createWeekBlock(w) {
+        const block = document.createElement('div');
+        block.className = 'week-block';
+        block.id = `week-block-${w}`;
+        const stats = calcWeekStats(w);
+        block.innerHTML = `
+        <div class="week-header-bar" onclick="toggleWeekCollapse(${w})">
+          <span class="week-header-title">📅 WEEK ${w+1}</span>
+          <span class="week-header-badge">Blended: ${stats.blended.toFixed(2)} | Calls: ${stats.totalCalls}</span>
+          <span class="week-collapse-icon" id="week-icon-${w}">${weekCollapsed[w]?'▸':'▾'}</span>
+        </div>
+        <div class="week-content" id="week-content-${w}">
+          <div class="table-wrap">
+            <table class="data-table"><thead><tr><th>Day</th><th>Survey (K)</th><th>Survey (C)</th><th>Calls</th><th style="width:36px">Del</th></tr></thead><tbody id="week-tbody-${w}"></tbody></table>
+          </div>
+          <button class="add-row-btn" onclick="event.stopPropagation();addRow(${w})">+ Add Row</button>
+        </div>`;
+        rebuildWeekRows(w, block.querySelector(`#week-tbody-${w}`));
+        return block;
+    }
+
+    function rebuildWeekRows(w, tbody) {
+        if (!tbody) tbody = $(`week-tbody-${w}`);
+        if (!tbody) return;
+        tbody.innerHTML = '';
+        weekData[w].forEach((row, r) => {
+            const tr = document.createElement('tr');
+            tr.innerHTML = `
+          <td><input type="date" value="${row.date}" oninput="setVal(${w},${r},'date',this.value)"/></td>
+          <td><input type="number" min="1" max="5" step="0.01" placeholder="–" value="${row.k}" oninput="setVal(${w},${r},'k',this.value)"/></td>
+          <td><input type="number" min="1" max="5" step="0.01" placeholder="–" value="${row.c}" oninput="setVal(${w},${r},'c',this.value)"/></td>
+          <td><input type="number" min="0" placeholder="0" value="${row.calls}" oninput="setVal(${w},${r},'calls',this.value)"/></td>
+          <td><button class="row-del-btn" onclick="deleteRow(${w},${r})">✕</button></td>`;
+            tbody.appendChild(tr);
+        });
+        const stats = calcWeekStats(w);
+        [{ cls:'row-highlight',label:'AVE (K)',val:stats.avgK.toFixed(2) },
+         { cls:'row-highlight',label:'AVE (C)',val:stats.avgC.toFixed(2) },
+         { cls:'row-gold',label:'BLENDED',val:stats.blended.toFixed(2) },
+         { cls:'row-summary',label:'# Calls',val:stats.totalCalls }].forEach(sr => {
+            const tr = document.createElement('tr'); tr.className = sr.cls;
+            tr.innerHTML = `<td style="text-align:left;padding-left:10px;">${sr.label}</td><td colspan="4">${sr.val}</td>`;
+            tbody.appendChild(tr);
+        });
+    }
+
+    function buildKPISidebar() {
+        const container = $('kpi-sidebar');
+        if (!container) return;
+        const stats = allWeekStats();
+        const month = calcMonthlyStats();
+        container.innerHTML = `
+        <div class="glass-card" style="margin-bottom:10px;">
+          <div class="glass-card-header"><span class="glass-card-title">📊 Survey Score</span></div>
+          <div class="glass-card-body no-padding"><div class="table-wrap"><table class="data-table">
+            <thead><tr><th></th>${[...Array(NUM_WEEKS)].map((_,i)=>`<th>W${i+1}</th>`).join('')}</tr></thead>
+            <tbody>
+              <tr><td style="text-align:left;color:var(--accent-gold);">KNOWLEDGE</td>${stats.map(s=>`<td>${Math.round(s.kScore)}</td>`).join('')}</tr>
+              <tr><td style="text-align:left;color:var(--accent-gold);">COURTESY</td>${stats.map(s=>`<td>${Math.round(s.cScore)}</td>`).join('')}</tr>
+            </tbody>
+          </table></div></div>
+        </div>
+        <div class="glass-card" style="margin-bottom:10px;">
+          <div class="glass-card-header"><span class="glass-card-title">📋 Survey Count</span></div>
+          <div class="glass-card-body no-padding"><div class="table-wrap"><table class="data-table">
+            <thead><tr><th></th>${[...Array(NUM_WEEKS)].map((_,i)=>`<th>W${i+1}</th>`).join('')}</tr></thead>
+            <tbody>
+              <tr><td style="text-align:left;">KNOWLEDGE</td>${stats.map(s=>`<td>${s.kCount}</td>`).join('')}</tr>
+              <tr><td style="text-align:left;">COURTESY</td>${stats.map(s=>`<td>${s.cCount}</td>`).join('')}</tr>
+            </tbody>
+          </table></div></div>
+        </div>
+        <div class="glass-card" style="margin-bottom:10px;">
+          <div class="glass-card-header"><span class="glass-card-title">🎯 Final Scores</span></div>
+          <div class="glass-card-body">
+            <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;text-align:center;">
+              <div><div style="font-size:10px;color:var(--text-muted);">K</div><div style="font-size:20px;font-weight:800;">${month.fK.toFixed(2)}</div></div>
+              <div><div style="font-size:10px;color:var(--text-muted);">C</div><div style="font-size:20px;font-weight:800;">${month.fC.toFixed(2)}</div></div>
+              <div><div style="font-size:10px;color:var(--accent-gold);">Blended</div><div style="font-size:22px;font-weight:900;color:var(--accent-gold);">${month.blended.toFixed(2)}</div></div>
+            </div>
+            <div style="margin-top:8px;font-size:9px;color:var(--text-muted);text-align:center;">Targets: K≥4.85 | C≥4.90</div>
+          </div>
+        </div>
+        <div class="glass-card">
+          <div class="glass-card-header"><span class="glass-card-title">📈 STR Tracking</span></div>
+          <div class="glass-card-body no-padding"><div class="table-wrap"><table class="data-table">
+            <tbody>${stats.map((s,i)=>`<tr><td style="text-align:left;">W${i+1}</td><td>${s.str.toFixed(2)}%</td></tr>`).join('')}<tr class="row-gold"><td style="text-align:left;">TOTAL</td><td><strong>${month.str.toFixed(2)}%</strong></td></tr></tbody>
+          </table></div></div>
+          <div style="padding:8px 14px;font-size:9px;color:var(--text-muted);">Target: 30%</div>
+        </div>`;
+    }
+
+    function buildSummaryCard() {
+        const container = $('summary-card-bottom');
+        if (!container) return;
+        const month = calcMonthlyStats();
+        container.innerHTML = `
+        <div class="glass-card-header"><span class="glass-card-title">👤 Agent Summary</span><span class="pulse-dot"></span></div>
+        <div class="glass-card-body">
+          <div style="display:flex;gap:14px;flex-wrap:wrap;align-items:flex-end;">
+            <div style="flex:1;min-width:140px;">
+              <label style="font-size:10px;color:var(--text-muted);">Agent Name</label>
+              <input type="text" id="agent-name" style="width:100%;background:var(--bg-input);border:1px solid var(--border-subtle);color:var(--text-primary);font-family:var(--font-sans);font-size:13px;font-weight:600;padding:7px 10px;border-radius:8px;outline:none;" placeholder="Agent Name" oninput="saveToLocalStorage()" />
+            </div>
+            <div style="text-align:center;min-width:70px;"><div style="font-size:9px;color:var(--text-muted);">Total Calls</div><div style="font-size:20px;font-weight:800;">${month.tCalls}</div></div>
+            <div style="text-align:center;min-width:70px;"><div style="font-size:9px;color:var(--text-muted);">AHT (secs)</div><input type="number" id="aht-secs-input" style="width:80px;background:var(--bg-input);border:1px solid var(--border-subtle);color:var(--text-primary);font-family:var(--font-mono);font-size:14px;font-weight:700;padding:5px;border-radius:8px;text-align:center;outline:none;" placeholder="0" min="0" oninput="updateAHT()" /></div>
+            <div style="text-align:center;min-width:50px;"><div style="font-size:9px;color:var(--text-muted);">AHT</div><div style="font-size:16px;font-weight:700;" id="sum-aht-mins">0:00</div></div>
+            <div style="text-align:center;min-width:50px;"><div style="font-size:9px;color:var(--text-muted);">K</div><div style="font-size:16px;font-weight:700;">${month.fK.toFixed(2)}</div></div>
+            <div style="text-align:center;min-width:50px;"><div style="font-size:9px;color:var(--text-muted);">C</div><div style="font-size:16px;font-weight:700;">${month.fC.toFixed(2)}</div></div>
+            <div style="text-align:center;min-width:50px;"><div style="font-size:9px;color:var(--accent-gold);">Blended</div><div style="font-size:18px;font-weight:800;color:var(--accent-gold);">${month.blended.toFixed(2)}</div></div>
+            <div style="text-align:center;min-width:50px;"><div style="font-size:9px;color:var(--text-muted);">STR</div><div style="font-size:16px;font-weight:700;">${month.str.toFixed(1)}%</div></div>
+            <div style="display:flex;gap:8px;flex-wrap:wrap;">
+              <div style="text-align:center;"><div style="font-size:9px;color:var(--text-muted);">Hold%</div><input type="number" id="hold-pct" style="width:55px;background:var(--bg-input);border:1px solid var(--border-subtle);color:var(--text-primary);font-family:var(--font-mono);font-size:12px;padding:4px;border-radius:6px;text-align:center;outline:none;" placeholder="0" min="0" max="100" oninput="saveToLocalStorage()" /></div>
+              <div style="text-align:center;"><div style="font-size:9px;color:var(--text-muted);">Trans%</div><input type="number" id="transfer-pct" style="width:55px;background:var(--bg-input);border:1px solid var(--border-subtle);color:var(--text-primary);font-family:var(--font-mono);font-size:12px;padding:4px;border-radius:6px;text-align:center;outline:none;" placeholder="0" min="0" max="100" oninput="saveToLocalStorage()" /></div>
+              <div style="text-align:center;"><div style="font-size:9px;color:var(--text-muted);">TTS%</div><input type="number" id="tts-pct" style="width:55px;background:var(--bg-input);border:1px solid var(--border-subtle);color:var(--text-primary);font-family:var(--font-mono);font-size:12px;padding:4px;border-radius:6px;text-align:center;outline:none;" placeholder="0" min="0" max="100" oninput="saveToLocalStorage()" /></div>
+            </div>
+          </div>
+        </div>`;
+        setTimeout(() => {
+            const saved = JSON.parse(localStorage.getItem('qa_scorecard_v4') || '{}');
+            if (saved.agentName && $('agent-name')) $('agent-name').value = saved.agentName;
+            if (saved.ahtSecs && $('aht-secs-input')) { $('aht-secs-input').value = saved.ahtSecs; updateAHT(); }
+        }, 60);
+    }
+
+    // =========================================================
+    //  AHT TAB
+    // =========================================================
+    function ahtRenderTable() {
+        const tbody = $('aht-tbody'); if (!tbody) return;
+        const calls = ahtWeeks[ahtCurrentWeek];
+        tbody.innerHTML = calls.length === 0 ?
+            '<tr><td colspan="4" style="padding:24px;color:var(--text-muted);text-align:center;font-style:italic;">No entries — click "+ Add Call"</td></tr>' :
+            calls.map((val, i) => {
+                const secs = ahtParseTime(val);
+                return `<tr class="animate-pop">
+            <td><span style="font-size:10px;color:var(--text-muted);">CALL ${String(i+1).padStart(2,'0')}</span></td>
+            <td><input class="aht-time-input${secs===null&&val.trim()!==''?' invalid':''}" id="aht-inp-${i}" type="text" value="${val}" placeholder="3:22" maxlength="8" oninput="ahtUpdateRow(${i},this.value)" onkeydown="if(event.key==='Enter')ahtAddRow()" /></td>
+            <td><span style="color:var(--text-muted);font-size:11px;" id="aht-secs-${i}">${secs!==null?secs+'s':'–'}</span></td>
+            <td><button class="row-del-btn" onclick="ahtDeleteRow(${i})">✕</button></td></tr>`;
+            }).join('');
+        $('aht-badge').textContent = `${calls.length} call${calls.length!==1?'s':''}`;
+        $('aht-week-label').textContent = `Week ${ahtCurrentWeek+1}`;
+    }
+
+    function buildAHTStatCards() {
+        const calls = ahtWeeks[ahtCurrentWeek];
+        const secsList = calls.map(v => ahtParseTime(v)).filter(v => v !== null);
+        const count = secsList.length, total = secsList.reduce((a,b)=>a+b,0);
+        const avg = count > 0 ? Math.round(total/count) : 0;
+        const gd = parseInt($('thresh-good')?.value)||240, av = parseInt($('thresh-avg')?.value)||360;
+        const perfClass = count===0?'trend-neutral':avg<=gd?'trend-up':avg<=av?'trend-neutral':'trend-down';
+        const perfLabel = count===0?'—':avg<=gd?'✓ Good':avg<=av?'~ Avg':'⚠ High';
+        const maht = calcMonthlyAHT();
+        if ($('aht-stat-cards')) $('aht-stat-cards').innerHTML = `
+        <div class="stat-card accent-blue"><div class="stat-card-icon">📞</div><div class="stat-card-label">Calls This Week</div><div class="stat-card-value">${count}</div><div class="stat-card-sub">Week ${ahtCurrentWeek+1}</div></div>
+        <div class="stat-card accent-cyan"><div class="stat-card-icon">⏱</div><div class="stat-card-label">Total Talk Time</div><div class="stat-card-value">${ahtFormatTime(total)}</div><div class="stat-card-sub">${total}s</div></div>
+        <div class="stat-card accent-purple"><div class="stat-card-icon">📊</div><div class="stat-card-label">AHT</div><div class="stat-card-value">${count>0?ahtFormatTime(avg):'–'}</div><span class="stat-card-trend ${perfClass}">${perfLabel}</span></div>
+        <div class="stat-card accent-gold"><div class="stat-card-icon">🎯</div><div class="stat-card-label">Monthly AHT Avg</div><div class="stat-card-value">${ahtFormatTime(maht.avg)}</div><div class="stat-card-sub">All weeks</div></div>`;
+    }
+
+    function buildAHTSummaryCard() {
+        const container = $('aht-summary-card'); if (!container) return;
+        const calls = ahtWeeks[ahtCurrentWeek];
+        const secsList = calls.map(v => ahtParseTime(v)).filter(v => v !== null);
+        const count = secsList.length, total = secsList.reduce((a,b)=>a+b,0);
+        const avg = count > 0 ? Math.round(total/count) : 0;
+        const gd = parseInt($('thresh-good')?.value)||240, av = parseInt($('thresh-avg')?.value)||360;
+        let perfClass='aht-perf-good',perfText='— No Data —',resultColor='';
+        if(count>0){ if(avg<=gd){perfClass='aht-perf-good';perfText='✓ GOOD';resultColor='color:#22c55e;';}
+            else if(avg<=av){perfClass='aht-perf-avg';perfText='~ AVERAGE';resultColor='color:#f0b429;';}
+            else{perfClass='aht-perf-high';perfText='⚠ HIGH';resultColor='color:#ef4444;';} }
+        container.innerHTML = `
+        <div class="glass-card-header"><span class="glass-card-title">📊 Summary — Week ${ahtCurrentWeek+1}</span></div>
+        <div class="glass-card-body" style="text-align:center;">
+          <div style="font-size:10px;color:var(--text-muted);text-transform:uppercase;letter-spacing:0.08em;">Average Handle Time</div>
+          <div class="aht-result-display" style="${resultColor}">${count>0?ahtFormatTime(avg):'–'}</div>
+          <div style="color:var(--text-muted);font-size:11px;">${count>0?avg+' seconds':'–'}</div>
+          <div style="margin-top:8px;"><span class="aht-perf-tag ${perfClass}">${perfText}</span></div>
+        </div>`;
+    }
+
+    function ahtRecalc() { buildAHTStatCards(); buildAHTSummaryCard(); ahtDrawChart(); }
+    window.ahtRecalc = ahtRecalc;
+
+    function ahtDrawChart() {
+        const canvas = $('aht-trend-chart'); if (!canvas || canvas.offsetParent === null) return;
+        const ctx = canvas.getContext('2d');
+        const avgs = ahtWeeks.map(calls => { const secs=calls.map(v=>ahtParseTime(v)).filter(v=>v!==null); return secs.length?Math.round(secs.reduce((a,b)=>a+b,0)/secs.length):null; });
+        const good=parseInt($('thresh-good')?.value)||240, avgT=parseInt($('thresh-avg')?.value)||360;
+        const bgC=avgs.map(v=>v===null?'rgba(100,110,130,0.4)':v<=good?'rgba(34,197,94,0.7)':v<=avgT?'rgba(240,180,41,0.7)':'rgba(239,68,68,0.7)');
+        const bdC=avgs.map(v=>v===null?'#555':v<=good?'#22c55e':v<=avgT?'#f0b429':'#ef4444');
+        if(ahtChart){ahtChart.destroy();ahtChart=null;}
+        const isDark = document.documentElement.getAttribute('data-theme') !== 'light';
+        ahtChart = new Chart(ctx, { type:'bar', data:{labels:ahtWeeks.map((_,i)=>`Week ${i+1}`),datasets:[{label:'Avg AHT (seconds)',data:avgs,backgroundColor:bgC,borderColor:bdC,borderWidth:2,borderRadius:8}]},
+            options:{responsive:true,animation:{duration:500},plugins:{legend:{display:false},tooltip:{callbacks:{label:(ctx)=>{const v=ctx.raw;return v!==null?`AHT: ${ahtFormatTime(v)} (${v}s)`:'No data';}}}},
+            scales:{x:{ticks:{color:isDark?'#9aa4bf':'#555',font:{family:'JetBrains Mono',size:11}},grid:{color:isDark?'rgba(255,255,255,0.06)':'rgba(0,0,0,0.06)'}},y:{beginAtZero:true,ticks:{color:isDark?'#9aa4bf':'#555',font:{family:'JetBrains Mono',size:10},callback:v=>ahtFormatTime(v)},grid:{color:isDark?'rgba(255,255,255,0.06)':'rgba(0,0,0,0.06)'}}}}});
+    }
+
+    // =========================================================
+    //  MONTHLY TAB
+    // =========================================================
+    function buildMonthlyTab() { buildMonthlyStatCards(); buildMonthlyKPIBody(); buildMonthlyBreakdownTable(); drawMonthlyBarChart(); }
+
+    function buildMonthlyStatCards() {
+        const m = calcMonthlyStats(), ahtM = calcMonthlyAHT();
+        if ($('monthly-stat-cards')) $('monthly-stat-cards').innerHTML = `
+        <div class="stat-card accent-blue"><div class="stat-card-icon">📞</div><div class="stat-card-label">Total Monthly Calls</div><div class="stat-card-value">${m.tCalls}</div></div>
+        <div class="stat-card accent-purple"><div class="stat-card-icon">⭐</div><div class="stat-card-label">Blended Score</div><div class="stat-card-value">${m.blended.toFixed(2)}</div><span class="stat-card-trend ${m.blended>=4.90?'trend-up':m.blended>=4.85?'trend-neutral':'trend-down'}">${m.blended>=4.90?'✓ Excellent':m.blended>=4.85?'~ Good':'⚠ Needs Work'}</span></div>
+        <div class="stat-card accent-cyan"><div class="stat-card-icon">⏱</div><div class="stat-card-label">Monthly AHT</div><div class="stat-card-value">${ahtFormatTime(ahtM.avg)}</div><div class="stat-card-sub">${ahtM.count} calls</div></div>
+        <div class="stat-card accent-gold"><div class="stat-card-icon">🏆</div><div class="stat-card-label">Best Week</div><div class="stat-card-value">${m.bestWeek?'Week '+m.bestWeek:'–'}</div><div class="stat-card-sub">${m.bestVal>0?m.bestVal.toFixed(2):'N/A'}</div></div>
+        <div class="stat-card accent-green"><div class="stat-card-icon">📈</div><div class="stat-card-label">STR</div><div class="stat-card-value">${m.str.toFixed(1)}%</div><span class="stat-card-trend ${m.str>=30?'trend-up':'trend-down'}">${m.str>=30?'✓ Met':'⚠ Below'}</span></div>
+        <div class="stat-card accent-red"><div class="stat-card-icon">🔻</div><div class="stat-card-label">Lowest Week</div><div class="stat-card-value">${m.worstWeek?'Week '+m.worstWeek:'–'}</div><div class="stat-card-sub">${m.worstVal<999?m.worstVal.toFixed(2):'N/A'}</div></div>`;
+    }
+
+    function buildMonthlyKPIBody() {
+        const m=calcMonthlyStats(),ahtM=calcMonthlyAHT();
+        const gd=parseInt($('thresh-good')?.value)||240,av=parseInt($('thresh-avg')?.value)||360;
+        const blendedPct=Math.min(100,(m.blended/4.90)*100);
+        const strPct=Math.min(100,(m.str/30)*100);
+        const ahtPct=ahtM.avg>0?Math.min(100,(gd/ahtM.avg)*100):0;
+        if($('monthly-kpi-body'))$('monthly-kpi-body').innerHTML=`
+        <div class="progress-wrapper"><div class="progress-label-row"><span>Blended Score vs 4.90</span><span>${m.blended.toFixed(2)}/4.90</span></div><div class="progress-bar-outer"><div class="progress-bar-inner ${m.blended>=4.90?'green':m.blended>=4.85?'gold':'red'}" style="width:${blendedPct}%"></div></div></div>
+        <div class="progress-wrapper"><div class="progress-label-row"><span>STR vs 30%</span><span>${m.str.toFixed(1)}%/30%</span></div><div class="progress-bar-outer"><div class="progress-bar-inner ${m.str>=30?'green':'purple'}" style="width:${strPct}%"></div></div></div>
+        <div class="progress-wrapper"><div class="progress-label-row"><span>AHT vs Good (${gd}s)</span><span>${ahtM.avg}s/${gd}s</span></div><div class="progress-bar-outer"><div class="progress-bar-inner ${ahtM.avg<=gd?'green':ahtM.avg<=av?'gold':'red'}" style="width:${Math.min(100,ahtPct)}%"></div></div></div>`;
+    }
+
+    function buildMonthlyBreakdownTable() {
+        const stats=allWeekStats();
+        const ahtAvgs=ahtWeeks.map(calls=>{const secs=calls.map(v=>ahtParseTime(v)).filter(v=>v!==null);return secs.length?Math.round(secs.reduce((a,b)=>a+b,0)/secs.length):0;});
+        const m=calcMonthlyStats();
+        if($('monthly-breakdown-table'))$('monthly-breakdown-table').innerHTML=`
+        <thead><tr><th>Week</th><th>Total Calls</th><th>Avg K</th><th>Avg C</th><th>Blended</th><th>STR</th><th>AHT (s)</th><th>Status</th></tr></thead>
+        <tbody>${stats.map((s,i)=>`<tr><td><strong>Week ${i+1}</strong></td><td>${s.totalCalls}</td><td>${s.avgK.toFixed(2)}</td><td>${s.avgC.toFixed(2)}</td><td><strong>${s.blended.toFixed(2)}</strong></td><td>${s.str.toFixed(1)}%</td><td>${ahtAvgs[i]||'–'}</td><td><span class="badge ${s.blended>=4.90?'badge-green':s.blended>=4.85?'badge-yellow':'badge-red'}">${s.blended>=4.90?'Excellent':s.blended>=4.85?'Good':'Needs Work'}</span></td></tr>`).join('')}
+        <tr class="row-gold"><td><strong>MONTHLY</strong></td><td>${m.tCalls}</td><td>${m.fK.toFixed(2)}</td><td>${m.fC.toFixed(2)}</td><td><strong>${m.blended.toFixed(2)}</strong></td><td>${m.str.toFixed(1)}%</td><td>${calcMonthlyAHT().avg||'–'}</td><td><span class="badge badge-blue">Summary</span></td></tr></tbody>`;
+    }
+
+    function drawMonthlyBarChart() {
+        const canvas=$('monthly-bar-chart'); if(!canvas||canvas.offsetParent===null)return;
+        const ctx=canvas.getContext('2d'); const stats=allWeekStats();
+        const blendedData=stats.map(s=>s.blended);
+        const isDark=document.documentElement.getAttribute('data-theme')!=='light';
+        if(monthlyBarChart)monthlyBarChart.destroy();
+        monthlyBarChart=new Chart(ctx,{type:'bar',data:{labels:stats.map((_,i)=>`Week ${i+1}`),datasets:[{label:'Blended',data:blendedData,backgroundColor:blendedData.map(v=>v>=4.90?'rgba(34,197,94,0.7)':v>=4.85?'rgba(240,180,41,0.7)':'rgba(239,68,68,0.7)'),borderColor:blendedData.map(v=>v>=4.90?'#22c55e':v>=4.85?'#f0b429':'#ef4444'),borderWidth:2,borderRadius:8},{label:'Target (4.90)',data:Array(NUM_WEEKS).fill(4.90),type:'line',borderColor:'#4f8fff',borderDash:[6,4],borderWidth:2,pointRadius:0,fill:false}]},
+            options:{responsive:true,plugins:{legend:{labels:{color:isDark?'#9aa4bf':'#555'}}},scales:{x:{ticks:{color:isDark?'#9aa4bf':'#555'},grid:{color:isDark?'rgba(255,255,255,0.06)':'rgba(0,0,0,0.06)'}},y:{min:4.0,max:5.0,ticks:{stepSize:0.1,color:isDark?'#9aa4bf':'#555'},grid:{color:isDark?'rgba(255,255,255,0.06)':'rgba(0,0,0,0.06)'}}}}});
+    }
+
+    // =========================================================
+    //  KPI MONITOR TAB
+    // =========================================================
+    function buildKPITab() { buildKPIStatCards(); buildKPIProgressBody(); buildKPIRankingBody(); drawKPITrendChart(); }
+
+    function buildKPIStatCards() {
+        const m=calcMonthlyStats(),ahtM=calcMonthlyAHT();
+        const gd=parseInt($('thresh-good')?.value)||240;
+        const met=(m.blended>=4.85?1:0)+(m.str>=30?1:0)+(ahtM.count>0&&ahtM.avg<=gd?1:0);
+        if($('kpi-stat-cards'))$('kpi-stat-cards').innerHTML=`
+        <div class="stat-card accent-green"><div class="stat-card-icon">✅</div><div class="stat-card-label">KPIs Met</div><div class="stat-card-value">${met}/3</div></div>
+        <div class="stat-card accent-red"><div class="stat-card-icon">⚠️</div><div class="stat-card-label">At Risk</div><div class="stat-card-value">${3-met}</div></div>
+        <div class="stat-card accent-blue"><div class="stat-card-icon">📊</div><div class="stat-card-label">Data Completeness</div><div class="stat-card-value">${m.tCalls>0?'✓':'⚠'}</div></div>`;
+    }
+
+    function buildKPIProgressBody() {
+        const m=calcMonthlyStats(),ahtM=calcMonthlyAHT();
+        const gd=parseInt($('thresh-good')?.value)||240,av=parseInt($('thresh-avg')?.value)||360;
+        const items=[
+            {label:'Blended (min 4.85)',val:m.blended,target:4.85,max:5.0,cls:m.blended>=4.85?'green':'red'},
+            {label:'STR (min 30%)',val:m.str,target:30,max:50,cls:m.str>=30?'green':'purple'},
+            {label:'AHT (≤'+gd+'s)',val:ahtM.count>0?ahtM.avg:gd+1,target:gd,max:av+120,cls:ahtM.count>0&&ahtM.avg<=gd?'green':ahtM.avg<=av?'gold':'red',invert:true},
+        ];
+        if($('kpi-progress-body'))$('kpi-progress-body').innerHTML=items.map(item=>{
+            const pct=item.invert?Math.max(0,Math.min(100,((item.max-item.val)/(item.max-item.target))*100)):Math.min(100,(item.val/item.target)*100);
+            return `<div class="progress-wrapper"><div class="progress-label-row"><span>${item.label}</span><span>${item.val.toFixed(1)} / ${item.target}</span></div><div class="progress-bar-outer"><div class="progress-bar-inner ${item.cls}" style="width:${pct}%"></div></div></div>`;
+        }).join('');
+    }
+
+    function buildKPIRankingBody() {
+        const stats=allWeekStats();
+        const ranked=stats.map((s,i)=>({week:i+1,blended:s.blended})).filter(r=>r.blended>0).sort((a,b)=>b.blended-a.blended);
+        if($('kpi-ranking-body'))$('kpi-ranking-body').innerHTML=ranked.length===0?'<p style="color:var(--text-muted);text-align:center;">No data</p>':
+            ranked.map((r,i)=>`<div style="display:flex;align-items:center;gap:10px;padding:8px 0;border-bottom:1px solid var(--border-subtle);">
+              <span style="font-size:18px;font-weight:900;width:28px;text-align:center;color:${i===0?'#f0b429':i===1?'#9aa4bf':i===2?'#cd7f32':'var(--text-muted)'}">#${i+1}</span>
+              <span style="flex:1;font-weight:600;">Week ${r.week}</span>
+              <span style="font-family:var(--font-mono);font-weight:700;">${r.blended.toFixed(2)}</span>
+            </div>`).join('');
+    }
+
+    function drawKPITrendChart() {
+        const canvas=$('kpi-trend-chart'); if(!canvas||canvas.offsetParent===null)return;
+        const ctx=canvas.getContext('2d'); const stats=allWeekStats();
+        const isDark=document.documentElement.getAttribute('data-theme')!=='light';
+        if(kpiTrendChart)kpiTrendChart.destroy();
+        kpiTrendChart=new Chart(ctx,{type:'line',data:{labels:stats.map((_,i)=>`Week ${i+1}`),datasets:[{label:'Blended',data:stats.map(s=>s.blended),borderColor:'#8b5cf6',backgroundColor:'rgba(139,92,246,0.1)',borderWidth:3,tension:0.4,pointRadius:5,fill:true},{label:'STR %',data:stats.map(s=>s.str),borderColor:'#f0b429',backgroundColor:'rgba(240,180,41,0.05)',borderWidth:3,tension:0.4,pointRadius:5,fill:true,yAxisID:'y1'}]},
+            options:{responsive:true,plugins:{legend:{labels:{color:isDark?'#9aa4bf':'#555'}}},scales:{x:{ticks:{color:isDark?'#9aa4bf':'#555'},grid:{color:isDark?'rgba(255,255,255,0.06)':'rgba(0,0,0,0.06)'}},y:{position:'left',min:4.0,max:5.0,ticks:{color:'#8b5cf6',stepSize:0.1},grid:{color:isDark?'rgba(255,255,255,0.06)':'rgba(0,0,0,0.06)'}},y1:{position:'right',min:0,max:60,ticks:{color:'#f0b429',stepSize:10},grid:{drawOnChartArea:false}}}}});
+    }
+
+    // =========================================================
+    //  SHARED HELPERS
+    // =========================================================
+    function updateAHT() {
+        const s=parseInt($('aht-secs-input')?.value)||0;
+        if($('sum-aht-mins'))$('sum-aht-mins').textContent=`${Math.floor(s/60)}:${String(s%60).padStart(2,'0')}`;
+        saveToLocalStorage();
+    }
+    window.updateAHT = updateAHT;
+
+    function refreshAll() {
+        buildStatCards(); buildKPISidebar(); buildSummaryCard();
+        for(let w=0;w<NUM_WEEKS;w++)rebuildWeekRows(w);
+        if(currentTab==='aht')ahtRecalc();
+        if(currentTab==='monthly')buildMonthlyTab();
+        if(currentTab==='kpi')buildKPITab();
+        saveToLocalStorage();
+    }
+
+    window.addRow           = (w)=>{weekData[w].push({date:'',k:'',c:'',calls:''});rebuildWeekRows(w);refreshAll();};
+    window.deleteRow        = (w,r)=>{weekData[w].splice(r,1);if(weekData[w].length===0)weekData[w]=[{date:'',k:'',c:'',calls:''}];rebuildWeekRows(w);refreshAll();};
+    window.setVal           = (w,r,field,val)=>{weekData[w][r][field]=val;refreshAll();};
+    window.toggleWeekCollapse=(w)=>{weekCollapsed[w]=!weekCollapsed[w];const content=$(`week-content-${w}`);if(content){if(weekCollapsed[w])content.classList.add('collapsed');else content.classList.remove('collapsed');}const icon=$(`week-icon-${w}`);if(icon)icon.textContent=weekCollapsed[w]?'▸':'▾';saveToLocalStorage();};
+    window.ahtAddRow        =()=>{ahtWeeks[ahtCurrentWeek].push('');saveToLocalStorage();ahtRenderTable();ahtRecalc();setTimeout(()=>{const inputs=document.querySelectorAll('.aht-time-input');if(inputs.length)inputs[inputs.length-1].focus();},50);};
+    window.ahtDeleteRow     =(idx)=>{ahtWeeks[ahtCurrentWeek].splice(idx,1);saveToLocalStorage();ahtRenderTable();ahtRecalc();};
+    window.ahtUpdateRow     =(idx,val)=>{ahtWeeks[ahtCurrentWeek][idx]=val;const secs=ahtParseTime(val);const secsEl=$(`aht-secs-${idx}`),input=$(`aht-inp-${idx}`);if(secsEl)secsEl.textContent=secs!==null?secs+'s':'–';if(input)input.classList.toggle('invalid',secs===null&&val.trim()!=='');saveToLocalStorage();ahtRecalc();};
+    window.ahtSwitchWeek    =()=>{ahtCurrentWeek=parseInt($('aht-week-select').value);$('aht-week-label').textContent=`Week ${ahtCurrentWeek+1}`;ahtRenderTable();ahtRecalc();};
+    window.ahtResetWeek     =()=>{if(!confirm(`Reset Week ${ahtCurrentWeek+1}?`))return;ahtWeeks[ahtCurrentWeek]=[];saveToLocalStorage();ahtRenderTable();ahtRecalc();};
+    window.ahtExportCSV     =()=>{const calls=ahtWeeks[ahtCurrentWeek];let csv=`Call,Talk Time,Seconds\n`;calls.forEach((v,i)=>{const s=ahtParseTime(v);csv+=`${i+1},${v},${s!==null?s:'–'}\n`;});const secsList=calls.map(v=>ahtParseTime(v)).filter(v=>v!==null);const total=secsList.reduce((a,b)=>a+b,0);const avg=secsList.length?Math.round(total/secsList.length):0;csv+=`\nTotal,${secsList.length}\nAHT,${ahtFormatTime(avg)} (${avg}s)\n`;dlCSV(csv,`aht_week${ahtCurrentWeek+1}.csv`);};
+    window.ahtRenderTable   = ahtRenderTable;
+
+    function dlCSV(csv,fname){const blob=new Blob([csv],{type:'text/csv'});const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download=fname;a.click();URL.revokeObjectURL(a.href);}
+
+    window.exportCSV=()=>{let csv='Week,Date,Survey K,Survey C,Calls\n';weekData.forEach((rows,w)=>rows.forEach(r=>csv+=`Week ${w+1},${r.date},${r.k},${r.c},${r.calls}\n`));csv+='\nSummary\n';csv+=`Agent,${$('agent-name')?.value||''}\nAHT Secs,${$('aht-secs-input')?.value||''}\n`;csv+=`Hold %,${$('hold-pct')?.value||''}\nTransfer %,${$('transfer-pct')?.value||''}\nTTS %,${$('tts-pct')?.value||''}\n`;csv+='\nAHT Calculator\n';ahtWeeks.forEach((calls,w)=>calls.forEach((c,i)=>csv+=`Week ${w+1},Call ${i+1},${c}\n`));dlCSV(csv,'qa_dashboard_full.csv');showToast('📤 CSV exported','success');};
+
+    window.resetAll=()=>{if(!confirm('Reset ALL data?'))return;weekData=Array.from({length:NUM_WEEKS},()=>[{date:'',k:'',c:'',calls:''},{date:'',k:'',c:'',calls:''},{date:'',k:'',c:'',calls:''}]);ahtWeeks=Array.from({length:NUM_AHT_WEEKS},()=>[]);weekCollapsed=Array(NUM_WEEKS).fill(false);['agent-name','aht-secs-input','hold-pct','transfer-pct','tts-pct'].forEach(id=>{if($(id))$(id).value='';});if($('sum-aht-mins'))$('sum-aht-mins').textContent='0:00';localStorage.removeItem('qa_scorecard_v4');ahtCurrentWeek=0;if($('aht-week-select'))$('aht-week-select').value='0';buildWeekTables();ahtRenderTable();refreshAll();showToast('🔄 All data reset','info');};
+
+    function switchTab(name) {
+        currentTab = name;
+        document.querySelectorAll('.tab-page').forEach(p=>p.classList.remove('active'));
+        document.querySelectorAll('.nav-tab').forEach(b=>b.classList.remove('active'));
+        const page=$(`tab-${name}`), btn=document.querySelector(`[data-tab="${name}"]`);
+        if(page)page.classList.add('active');
+        if(btn)btn.classList.add('active');
+        localStorage.setItem('qa_active_tab', name);
+        setTimeout(()=>{
+            if(name==='aht'){ahtRecalc();ahtDrawChart();}
+            if(name==='monthly'){buildMonthlyTab();drawMonthlyBarChart();}
+            if(name==='kpi'){buildKPITab();drawKPITrendChart();}
+            if(name==='bonus'){renderBonusTiers(null);}
+        },150);
+    }
+    window.switchTab = switchTab;
+
+    function showToast(msg,type='info'){const container=$('toast-container');const toast=document.createElement('div');toast.className=`toast toast-${type}`;toast.textContent=msg;container.appendChild(toast);setTimeout(()=>toast.remove(),3400);}
+
+    window.triggerImportCSV=()=>{$('importCsvInput').click();};
+    window.handleCSVImport=(event)=>{
+        const file=event.target.files[0];if(!file)return;
+        if(!file.name.toLowerCase().endsWith('.csv')){showToast('Invalid file','error');event.target.value='';return;}
+        const reader=new FileReader();
+        reader.onload=(e)=>{try{const count=parseAndRestoreCSV(e.target.result);showToast(`✅ ${count} records imported`,'success');buildWeekTables();ahtRenderTable();refreshAll();}catch(err){showToast('❌ Parse error','error');}};
+        reader.onerror=()=>showToast('❌ Read error','error');
+        reader.readAsText(file,'UTF-8'); event.target.value='';
+    };
+
+    function parseAndRestoreCSV(csvText){
+        const lines=csvText.split(/\r?\n/).map(l=>l.trim()).filter(l=>l);
+        if(!lines.length)throw new Error('Empty');
+        const newWeekData=Array.from({length:NUM_WEEKS},()=>[]);
+        const newAhtWeeks=Array.from({length:NUM_AHT_WEEKS},()=>[]);
+        let section='scorecard',skipped=false,total=0;const summary={};
+        for(const line of lines){
+            if(line.toLowerCase()==='summary'){section='summary';continue;}
+            if(line.toLowerCase().startsWith('aht calculator')){section='aht';continue;}
+            if(section==='scorecard'){
+                if(!skipped&&line.startsWith('Week,')&&line.includes('Survey K')){skipped=true;continue;}
+                const p=parseCSVLine(line);
+                if(p.length>=5&&p[0].toLowerCase().startsWith('week')){const m=p[0].match(/week\s*(\d+)/i);if(m&&+m[1]>=1&&+m[1]<=NUM_WEEKS){newWeekData[+m[1]-1].push({date:p[1]||'',k:p[2]||'',c:p[3]||'',calls:p[4]||''});total++;}}
+            }else if(section==='summary'){const p=parseCSVLine(line);if(p.length>=2)summary[p[0].trim().toLowerCase()]=p[1].trim();}
+            else if(section==='aht'){const p=parseCSVLine(line);if(p.length>=3&&p[0].toLowerCase().startsWith('week')){const m=p[0].match(/week\s*(\d+)/i);if(m&&+m[1]>=1&&+m[1]<=NUM_AHT_WEEKS){newAhtWeeks[+m[1]-1].push(p[2]||'');total++;}}}
+        }
+        for(let w=0;w<NUM_WEEKS;w++)if(!newWeekData[w].length)newWeekData[w]=[{date:'',k:'',c:'',calls:''}];
+        weekData=newWeekData;ahtWeeks=newAhtWeeks;
+        setTimeout(()=>{if(summary['agent']&&$('agent-name'))$('agent-name').value=summary['agent'];if(summary['aht secs']&&$('aht-secs-input')){$('aht-secs-input').value=summary['aht secs'];updateAHT();}if(summary['hold %']&&$('hold-pct'))$('hold-pct').value=summary['hold %'];if(summary['transfer %']&&$('transfer-pct'))$('transfer-pct').value=summary['transfer %'];if(summary['tts %']&&$('tts-pct'))$('tts-pct').value=summary['tts %'];saveToLocalStorage();},100);
+        return total;
+    }
+
+    function parseCSVLine(line){const result=[];let cur='',inQ=false;for(const ch of line){if(ch==='"')inQ=!inQ;else if(ch===','&&!inQ){result.push(cur.trim());cur='';}else cur+=ch;}result.push(cur.trim());return result;}
+
+    // =========================================================
+    //  INIT
+    // =========================================================
+    function init() {
+        loadFromLocalStorage();
+        setThemeFromStorage();
+        buildWeekTables();
+        buildStatCards();
+        buildKPISidebar();
+        buildSummaryCard();
+        ahtRenderTable();
+        ahtRecalc();
+        renderBonusTiers(null);  // Initialize bonus tier list
+        document.querySelectorAll('.nav-tab').forEach(btn=>btn.addEventListener('click',()=>switchTab(btn.dataset.tab)));
+        const savedTab = localStorage.getItem('qa_active_tab');
+        if(savedTab&&$(`tab-${savedTab}`))switchTab(savedTab);
+        ['agent-name','aht-secs-input','hold-pct','transfer-pct','tts-pct','thresh-good','thresh-avg'].forEach(id=>{const el=$(id);if(el)el.addEventListener('input',()=>{if(id==='aht-secs-input')updateAHT();saveToLocalStorage();});});
+    }
+
+    document.addEventListener('DOMContentLoaded', init);
+})();
+</script>
 </body>
 </html>
